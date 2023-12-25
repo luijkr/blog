@@ -55,8 +55,8 @@ menu:
     # url:               /example/
   - title:             About
     url:               /about/
-  # - title:             Documentation
-  #   url:               /docs/
+  - title:             Documentation
+    url:               /docs/
 
 # Add links to the footer.
 # Typically you'll want to link to your cookie- or privacy policy (if appliable), etc..
@@ -90,7 +90,15 @@ theme: jekyll-theme-hydejack
 # ----------------------------------------------------------------------------------------
  
 # Sidebar image and theme color of the site.
-accent_image:          /assets/img/sidebar-bg.jpg
+# accent_image:          /assets/img/sidebar-bg.jpg
+accent_image: /assets/img/blog/steve-harvey.jpg
+  # image:
+  #   path:    /assets/img/blog/steve-harvey.jpg
+  #   srcset:
+  #     1920w: /assets/img/blog/steve-harvey@0,5x.jpg
+  #     960w:  /assets/img/blog/steve-harvey@0,25x.jpg
+  #     480w:  /assets/img/blog/steve-harvey@0,125x.jpg
+
 accent_color:          rgb(51, 51, 51)
 
 # This is used for the `theme-color` meta tag,
