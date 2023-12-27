@@ -29,10 +29,10 @@ description: >
   with a focus on personal sites that are meant to impress.
 
 # A shorter description for the sidebar.
-tagline: This is where I talk data, Spark, and Databricks
+tagline: This is where I talk data, Spark, and Databricks. Over coffee.
 
 # A list of keywords for your blog
-keywords:              [data engineering, spark, databricks]
+keywords: [data engineering, spark, databricks]
 
 # A (square) logo for your site.
 # If provided, it will be shown at the top of the sidebar.
@@ -91,7 +91,7 @@ theme: jekyll-theme-hydejack
  
 # Sidebar image and theme color of the site.
 # accent_image:          /assets/img/sidebar-bg.jpg
-accent_image: /assets/img/blog/steve-harvey.jpg
+accent_image: /assets/img/sidebar-bg.jpg
   # image:
   #   path:    /assets/img/blog/steve-harvey.jpg
   #   srcset:

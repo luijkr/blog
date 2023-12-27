@@ -8,7 +8,7 @@ sitemap: false
 hide_last_modified: true
 ---
 
-So you're looking to get that [Spark Developer Associate](https://www.databricks.com/learn/certification/apache-spark-developer-associate) badge? As part of my own preparation for the exam, I've written a short description for each of the (high-level) topics that are mentioned at the end of the Databricks course, so you don't have to. 😉
+So you're looking to get that [Spark Developer Associate](https://www.databricks.com/learn/certification/apache-spark-developer-associate){:target="_blank"} badge? As part of my own preparation for the exam, I've written a short description for each of the (high-level) topics that are mentioned at the end of the Databricks course, so you don't have to. 😉
 
 The exam consists of 60 questions, and covers three main topics:
 - Spark Architecture Concepts (17%)
@@ -20,7 +20,8 @@ Covering 72% of all questions, **the DataFrame API is the most important**. Unfo
 
 _There's a lot of material to cover, so let's get going!_
 
----
+* this unordered seed list will be replaced by the toc 
+{:toc}
 
 # Spark Architecture Concepts (17%)
 
@@ -116,7 +117,7 @@ _There's a lot of material to cover, so let's get going!_
 
 ### Storage Levels
 
-- Types of storage level: a link to the [documentation](https://spark.apache.org/docs/latest/rdd-programming-guide.html#rdd-persistence) would be easiest 😉
+- Types of storage level: a link to the [documentation](https://spark.apache.org/docs/latest/rdd-programming-guide.html#rdd-persistence){:target="_blank"} would be easiest 😉
 - Default storage level: `MEMORY_ONLY`
 When to use each storage level: Choose based on memory constraints and computation needs.
 
@@ -159,7 +160,7 @@ When to use each storage level: Choose based on memory constraints and computati
 
 ### Types and Execution
 
-- Possible column types: many exist, see the [documentation](https://spark.apache.org/docs/latest/sql-ref-datatypes.html).
+- Possible column types: many exist, see the [documentation](https://spark.apache.org/docs/latest/sql-ref-datatypes.html){:target="_blank"}.
 - Parallel execution: DataFrames support parallel execution, enabling distributed data processing.
 
 ## Broadcasting
@@ -206,7 +207,7 @@ When to use each storage level: Choose based on memory constraints and computati
 ### Filtering
 
 - Single-condition filtering: Use the filter or where method for basic filtering.
-- Multiple-condition filtering: Combine multiple conditions using logical operators (&, |, ~).
+- Multiple-condition filtering: Combine multiple conditions using logical operators (`&``, `|``, `~``).
 
 ### Dropping
 
