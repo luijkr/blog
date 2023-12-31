@@ -4,7 +4,7 @@ title: How To Prepare for the Databricks Spark Developer Associate Exam
 description: A full overview of the course material
 # image: 
 #   path: /assets/img/blog/spark.png
-sitemap: false
+sitemap: true
 hide_last_modified: true
 ---
 

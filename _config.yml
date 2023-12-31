@@ -20,19 +20,18 @@
 lang:                  en
 
 # The title of your blog. Used in the sidebar and the browser tab.
-title:                 Tech Talk
+title: Data Drip
 
 # A short description (~150 chars) of the page used for the meta description tag.
 # Can use markdown, but no more than one paragraph (enforced by `>`)
 description: >
-  Hydejack is a boutique Jekyll theme for hackers, nerds, and academics,
-  with a focus on personal sites that are meant to impress.
+  A data engineering blog focused on Databriks and Spark
 
 # A shorter description for the sidebar.
-tagline: This is where I talk data, Spark, and Databricks. Over coffee.
+tagline: This is where I talk data engineering, Spark, and Databricks. Over coffee.
 
 # A list of keywords for your blog
-keywords: [data engineering, spark, databricks]
+keywords: [data engineering, spark, databricks, data science]
 
 # A (square) logo for your site.
 # If provided, it will be shown at the top of the sidebar.
@@ -370,11 +369,11 @@ plugins:
 #   admins:              <id>
 
 # Used on index and about sites
-# social:
-#   name:                <firstname> <lastname>
-#   links:
-#     - https://twitter.com/<username>
-#     - https://github.com/<username>
+social:
+  name: René Luijk
+  links:
+    - https://www.linkedin.com/in/ren%C3%A9-luijk-a63b1b24/
+    - https://github.com/luijkr
 
 
 # Plugin Configs
