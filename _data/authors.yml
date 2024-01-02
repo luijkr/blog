@@ -8,9 +8,11 @@ author1:
   # Used at the bottom of each page and at the top of the `about` layout
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
   about:             |
-    I'm working as a data engineer at a small consultancy focused on Databricks.
-
-    In my free time I enjoy playing basketball, doing CrossFit, and studying the Serbo-Croatian language (bok svima! / здраво свима!).
+    Passionate data engineer with a focus on Databricks at a dynamic boutique consultancy.
+    Former data scientist with a keen eye for turning insights into actionable strategies.
+    Outside the realm of data, my interests extend to software development.
+    
+    Off-duty, you'll find me pushing my limits in CrossFit and exploring the intricacies of the Serbo-Croatian language (bok svima! / здраво свима!).
 
     Here I (am trying to) document any new or interesting insights, technologies, or techniques I come across.
     Mostly to learn about them myself, but hopefully it's of some use to you, too!
