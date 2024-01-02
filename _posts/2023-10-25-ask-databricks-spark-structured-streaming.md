@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 
-description: 
+title: Structured Streaming With Apache Spark On Databricks
+description: A Q&A on Spark Structured Streaming
 image: 
   path: /assets/img/blog/ask-databricks-1-4.jpg
   srcset:

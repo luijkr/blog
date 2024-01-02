@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Go With The Flow! How To: Databricks Workflows"
-description: A Q&A on Databricks Workflows
+title: "Go With The Flow! Databricks Workflows"
+description: A Q&A on getting started with Databricks Workflows
 image: 
   path: /assets/img/blog/ask-databricks-1-2.jpg
   srcset:
