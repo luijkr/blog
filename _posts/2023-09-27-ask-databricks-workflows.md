@@ -12,7 +12,7 @@ sitemap: true
 hide_last_modified: true
 ---
 
-Another [Ask Databricks](https://www.advancinganalytics.co.uk/askdbx){:target="_blank"} episode hosted by [Advancing Analytics](https://www.linkedin.com/company/advancing-analytics/){:target="_blank"} launched! 🚀 This time, [Roland Fäustlin](https://www.linkedin.com/in/roland-f%C3%A4ustlin-1544465b/){:target="_blank"} joined to discuss Orchestration using [Workflows](https://docs.databricks.com/en/workflows/index.html){:target="_blank"}. Let's dive in! 🐬
+Another [Ask Databricks](https://www.advancinganalytics.co.uk/askdbx){:target="_blank"} episode hosted by [Advancing Analytics](https://www.linkedin.com/company/advancing-analytics/){:target="_blank"} launched ([view on Youtube](https://www.youtube.com/watch?v=rJ98lTKf0rM){:target="_blank"})! 🚀 This time, [Roland Fäustlin](https://www.linkedin.com/in/roland-f%C3%A4ustlin-1544465b/){:target="_blank"} joined to discuss Orchestration using [Workflows](https://docs.databricks.com/en/workflows/index.html){:target="_blank"}. Let's dive in! 🐬
 
 ## 💡 What is Databricks Workflows? How does it differ from a Job?
 

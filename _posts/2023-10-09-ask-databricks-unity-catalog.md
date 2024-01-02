@@ -12,7 +12,7 @@ sitemap: true
 hide_last_modified: true
 ---
 
-Continuing their [Ask Databricks](https://www.advancinganalytics.co.uk/askdbx){:target="_blank"} series, [Advancing Analytics](https://www.linkedin.com/company/advancing-analytics/){:target="_blank"} released yet another video ([view on Youtube(https://www.youtube.com/watch?v=qW83cFSS5dA){:target="_blank"}]) full of top-notch insights! 🥇 This time, [Paul Roome](https://www.linkedin.com/in/paulroome/?lipi=urn%3Ali%3Apage%3Ad_flagship3_pulse_read%3By8d%2FCop8TlKisdHEA85lkw%3D%3D){:target="_blank"} joined to discuss [Unity Catalog](https://www.databricks.com/product/unity-catalog){:target="_blank"}, a one-stop governance shop for all your data and AI objects.
+Continuing their [Ask Databricks](https://www.advancinganalytics.co.uk/askdbx){:target="_blank"} series, [Advancing Analytics](https://www.linkedin.com/company/advancing-analytics/){:target="_blank"} released yet another video ([view on Youtube](https://www.youtube.com/watch?v=qW83cFSS5dA){:target="_blank"}) full of top-notch insights! 🥇 This time, [Paul Roome](https://www.linkedin.com/in/paulroome/?lipi=urn%3Ali%3Apage%3Ad_flagship3_pulse_read%3By8d%2FCop8TlKisdHEA85lkw%3D%3D){:target="_blank"} joined to discuss [Unity Catalog](https://www.databricks.com/product/unity-catalog){:target="_blank"}, a one-stop governance shop for all your data and AI objects.
 
 Enough talking, let's dive in! 🐬
 
@@ -62,7 +62,7 @@ Tracking ML models using Unity Catalog is already possible. Data lineage concern
 
 ## 📈 Delta Live Tables Integration
 
-Delta Live Tables and Unity Catalog synergize by allowing users to define and manage Data Lake Table (DLT) pipelines effortlessly, all DLTs being governed by Unity Catalog. While users define lineage within a DLT pipeline, Unity Catalog extends this lineage to its broader usage, providing comprehensive visibility of the pipeline and its tables within your broader data architecture.
+[Delta Live Tables](https://www.databricks.com/product/delta-live-tables){:target="_blank"} and Unity Catalog synergize by allowing users to define and manage Data Lake Table (DLT) pipelines effortlessly, all DLTs being governed by Unity Catalog. While users define lineage within a DLT pipeline, Unity Catalog extends this lineage to its broader usage, providing comprehensive visibility of the pipeline and its tables within your broader data architecture.
 
 ## 💾 Best Practices for Backup and Recovery
 
@@ -70,11 +70,11 @@ Unity Catalog offers an open metadata structure, enabling users to tailor backup
 
 ## 🌊 MLFlow Integration
 
-Unity Catalog seamlessly integrates with MLFlow, allowing users to store and manage models as assets within the catalog. This integration resolves a significant challenge previously faced with MLFlow by enhancing the model registry's functionality and integrating it comprehensively within the end-to-end data lineage.
+Unity Catalog seamlessly integrates with [MLFlow](https://www.databricks.com/product/managed-mlflow){:target="_blank"}, allowing users to store and manage models as assets within the catalog. This integration resolves a significant challenge previously faced with MLFlow by enhancing the model registry's functionality and integrating it comprehensively within the end-to-end data lineage.
 
 ## 💽 Understanding Volumes
 
-Volumes in Unity Catalog serve as a vital mechanism for managing access to unstructured data stored in external locations, such as paths in cloud storage like S3. These high-level entities can be further organized into tables and volumes, offering controlled access to specific data subsets, improving data management granularity.
+[Volumes](https://docs.databricks.com/en/sql/language-manual/sql-ref-volumes.html){:target="_blank"} in Unity Catalog serve as a vital mechanism for managing access to unstructured data stored in external locations, such as paths in cloud storage like S3. These high-level entities can be further organized into tables and volumes, offering controlled access to specific data subsets, improving data management granularity.
 
 ## 🔮 Exciting Upcoming Features
 

@@ -12,7 +12,7 @@ sitemap: true
 hide_last_modified: true
 ---
 
-In a recent episode of [Ask Databricks](https://www.advancinganalytics.co.uk/askdbx){:target="_blank"} hosted by [Advancing Analytics](https://www.linkedin.com/company/advancing-analytics/){:target="_blank"}, special guest [Michael Armbrust](https://www.linkedin.com/in/michaelarmbrust/){:target="_blank"} joined for a Q&A on Delta Live Tables. Here are the key takeaways. Enjoy!
+In a recent episode of [Ask Databricks](https://www.advancinganalytics.co.uk/askdbx){:target="_blank"} hosted by [Advancing Analytics](https://www.linkedin.com/company/advancing-analytics/){:target="_blank"}, special guest [Michael Armbrust](https://www.linkedin.com/in/michaelarmbrust/){:target="_blank"} joined for a Q&A on Delta Live Tables ([view on Youtube](https://www.youtube.com/watch?v=DDqMNMF57P8){:target="_blank"}). Here are the key takeaways. Enjoy!
 
 
 ## 🚀 Can you use percentage run (%run) in a DLT pipeline? How do you extend your code base for DLT pipelines?

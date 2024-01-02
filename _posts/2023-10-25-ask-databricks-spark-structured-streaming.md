@@ -11,3 +11,5 @@ image:
 sitemap: true
 hide_last_modified: true
 ---
+
+([view on Youtube](https://www.youtube.com/watch?v=d905UJhIIHk){:target="_blank"})
