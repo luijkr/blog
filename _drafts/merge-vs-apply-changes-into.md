@@ -4,10 +4,10 @@ title: Merge vs. Apply Changes in Databricks
 description: How to effectively use Apply Changes in your Delta Live Table pipeline
 image: 
   path: /assets/img/blog/apply-changes.jpg
-  # srcset:
-  #   1060w: /assets/img/blog/spark.jpg
-  #   530w:  /assets/img/blog/spark@0,5x.jpg
-  #   265w:  /assets/img/blog/spark@0,25x.jpg
+  srcset:
+    1060w: /assets/img/blog/apply-changes.jpg
+    530w:  /assets/img/blog/apply-changes@0,5x.jpg
+    265w:  /assets/img/blog/apply-changes@0,25x.jpg
 hide_last_modified: true
 ---
 
