@@ -3,7 +3,7 @@ layout: post
 title: "How To: Delta Live Tables with Ask Databricks"
 description: A Q&A on Delta Live Tables
 image: 
-  path: /assets/img/blog/spark.jpg
+  path: /assets/img/blog/ask-databricks-1-1.png
   srcset:
     1060w: /assets/img/blog/ask-databricks-1-1.png
     530w:  /assets/img/blog/ask-databricks-1-1@0,5x.png
