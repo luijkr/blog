@@ -1,7 +1,7 @@
 ---
 layout: post
 title: One Ring To Rule Them All! Databricks Unity Catalog
-description: 
+description: An Ask Databricks Q&A on getting started with Databricks Unity Catalog
 image: 
   path: /assets/img/blog/ask-databricks-1-3.jpg
   srcset:
@@ -22,11 +22,11 @@ Enough talking, let's dive in! 🐬
 
 ## 🔄 Sharing data between metastores and regions
 
-Data can be shared between metastores, but not between regions. The reason for not allowing access between regions is that customers often are very intentional about this. It is still possible to share data across regions through Delta sharing, which makes this type of sharing very intentional.
+Data can be shared between [metastores](https://docs.databricks.com/en/data-governance/unity-catalog/create-metastore.html){:target="_blank"}, but not between [regions](https://docs.databricks.com/en/resources/supported-regions.html){:target="_blank"}. The reason for not allowing access between regions is that customers often are very intentional about this. It is still possible to share data across regions through Delta sharing, which makes this type of sharing very intentional.
 
 ## 🛣️ End-to-end data lineage with Unity Catalog
 
-Data lineage is a neat feature for data governance, and Unity Catalog has got it covered. Simply write your code, and Unity Catalog automatically creates a clear visual graph showcasing the lineage. It's not just about data tables; it tracks ML models too. That way you can truly see the (entire) picture!
+[Data lineage](https://docs.databricks.com/en/data-governance/unity-catalog/data-lineage.html){:target="_blank"} is a neat feature for data governance, and Unity Catalog has got it covered. Simply write your code, and Unity Catalog automatically creates a clear visual graph showcasing the lineage. It's not just about data tables; it tracks ML models too. That way you can truly see the (entire) picture!
 
 ## 🔍 Automatically identifying Personally Identifiable Information (PII)
 
@@ -58,7 +58,7 @@ Exciting times ahead! Databricks is collaborating closely with Microsoft to seam
 
 ## 🏠 Governance with Generative AI Models
 
-Tracking ML models using Unity Catalog is already possible. Data lineage concerns are even more importent with Large Language Models and generative AI. Unity Catalog creates insight into the entire data lineage for these models, ensuring compliance with evolving regulations.
+[Tracking ML models using Unity Catalog](https://docs.databricks.com/en/mlflow/models-in-uc.html){:target="_blank"} is already possible. Data lineage concerns are even more importent with Large Language Models and generative AI. Unity Catalog creates insight into the entire data lineage for these models, ensuring compliance with evolving regulations.
 
 ## 📈 Delta Live Tables Integration
 
