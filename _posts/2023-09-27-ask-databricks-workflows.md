@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Go With The Flow! How To: Delta Live Tables with Ask Databricks"
-description: A Q&A on Databricks Workflows
+description: A Q&A on Databricks Delta Live Tables
 image: 
   path: /assets/img/blog/ask-databricks-1-2.jpg
   srcset:
