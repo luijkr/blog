@@ -12,15 +12,17 @@ sitemap: true
 hide_last_modified: true
 ---
 
-Another [Ask Databricks](https://www.advancinganalytics.co.uk/askdbx){:target="_blank"} episode hosted by [Advancing Analytics](https://www.linkedin.com/company/advancing-analytics/){:target="_blank"} launched ([view on Youtube](https://www.youtube.com/watch?v=rJ98lTKf0rM){:target="_blank"})! 🚀 This time, [Roland Fäustlin](https://www.linkedin.com/in/roland-f%C3%A4ustlin-1544465b/){:target="_blank"} joined to discuss orchestration using [Workflows](https://docs.databricks.com/en/workflows/index.html){:target="_blank"}. Let's dive in! 🐬
+Another [Ask Databricks](https://www.advancinganalytics.co.uk/askdbx){:target="_blank"} episode hosted by [Advancing Analytics](https://www.linkedin.com/company/advancing-analytics/){:target="_blank"} launched ([view on Youtube](https://www.youtube.com/watch?v=rJ98lTKf0rM){:target="_blank"})! 🚀 This time, [Roland Fäustlin](https://www.linkedin.com/in/roland-f%C3%A4ustlin-1544465b/){:target="_blank"} joined to discuss orchestration using [Workflows](https://docs.databricks.com/en/workflows/index.html){:target="_blank"}.
+
+Let's dive in! 🐬
 
 ## 💡 What is Databricks Workflows? How does it differ from a Job?
 
-Workflows is the pipeline orchestrator that schedules and runs different Jobs, which in turn are collections of tasks. Workflows orchestrates various jobs, managing any interdependencies that may exist.
+**Workflows is the pipeline orchestrator** that schedules and runs different **Jobs, which in turn are collections of tasks**. Workflows orchestrates various jobs, managing any interdependencies that may exist.
 
 ## 💼 How does Workflows compare to Airflow, another popular orchestrator?
 
-Workflows is a tool designed to integrate seamlessly with Databricks and facilitate job execution. Compared to [Apache Airflow](https://airflow.apache.org/){:taret="_blank"}, Workflows offers advantages such as easy integration with Databricks, being a fully managed service, and providing CI/CD support through [Databricks Asset Bundles](https://docs.databricks.com/en/dev-tools/bundles/index.html){:target="_blank"}, making it a comprehensive solution within the Databricks ecosystem.
+**Workflows** is a tool designed to **integrate seamlessly with Databricks** and facilitate job execution. Compared to [Apache Airflow](https://airflow.apache.org/){:taret="_blank"}, Workflows offers advantages such as easy integration with Databricks, being a **fully managed service**, and providing CI/CD support through [Databricks Asset Bundles](https://docs.databricks.com/en/dev-tools/bundles/index.html){:target="_blank"}, making it a comprehensive solution within the Databricks ecosystem.
 
 ## 🛠️ User segmentation
 
@@ -40,7 +42,7 @@ For efficient operations, creating a workflow within Databricks is recommended, 
 
 ## ⚙️ Workflows and Delta Live Tables
 
-Workflows and [Delta Live Tables](https://www.databricks.com/product/delta-live-tables){:target="_blank"} complement each other. Workflows is great for orchestrating control flows (task 1 first, then the second, etc.). Delta Live Tables optimizes this control flow for you with the end goal in mind. In short, Workflows focuses on control flow, whereas DLT focuses on data flow.
+Workflows and [Delta Live Tables](https://www.databricks.com/product/delta-live-tables){:target="_blank"} complement each other. Workflows is great for orchestrating control flows (task 1 first, then the second, etc.). Delta Live Tables optimizes this control flow for you with the end goal in mind. In short, **Workflows focuses on control flow, whereas DLT focuses on data flow**.
 
 ## 📊 Monitoring and Management
 
@@ -48,7 +50,7 @@ Efficiently manage workflows by analyzing metrics, detecting patterns at Workflo
 
 ## 🔄 Making Workflows Dynamic
 
-Jobs already are highly parameterizable, allowing dynamic parameters at the Job level and at the Task level (so-called task values, similar to Apache Airflow's [XComs](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/xcoms.html){:target="_blank"}). This enables conditional branching and creating meta-jobs, making workflows more dynamic and adaptable.
+**Jobs already are highly parameterizable**, allowing dynamic parameters at the Job level and at the Task level (so-called task values, similar to [Apache Airflow's XComs](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/xcoms.html){:target="_blank"}). This enables conditional branching and creating meta-jobs, making workflows more dynamic and adaptable.
 
 ## 🛡️ Integration with Unity Catalog
 
@@ -56,11 +58,11 @@ Workflows seamlessly integrate with [Unity Catalog](https://docs.databricks.com/
 
 ## 🌊 Streaming Jobs with Workflows
 
-For streaming jobs, DLT offers flexible options for batch or continues [streaming processing](https://docs.databricks.com/en/structured-streaming/index.html){:target="_blank"}. In the case of continuous streaming jobs, Workflows provides automated restarts, ensuring no loss of data.
+For streaming jobs, **DLT offers flexible options for batch or continues [streaming processing](https://docs.databricks.com/en/structured-streaming/index.html){:target="_blank"}**. In the case of continuous streaming jobs, Workflows provides automated restarts, ensuring no loss of data.
 
 ## 🌐 Orchestrating External Tasks
 
-Though orchestrating external taks is already possible today, Databricks aims to make make it even better. Expanding this feature, Databricks will integrate more partners for smoother processes, such as sending emails or triggering jobs in external orchestration tools.
+Though orchestrating external taks is **already possible today**, Databricks aims to make make it even better. Expanding this feature, **Databricks will integrate more partners** for smoother processes, such as sending emails or triggering jobs in external orchestration tools.
 
 ## 🚀 Future Focus - Serverless
 
