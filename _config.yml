@@ -25,7 +25,7 @@ title: Data Drip
 # A short description (~150 chars) of the page used for the meta description tag.
 # Can use markdown, but no more than one paragraph (enforced by `>`)
 description: >
-  A data engineering blog focused on Databriks and Spark
+  This is where I talk data engineering, Spark, and Databricks. Over coffee.
 
 # A shorter description for the sidebar.
 tagline: This is where I talk data engineering, Spark, and Databricks. Over coffee.
