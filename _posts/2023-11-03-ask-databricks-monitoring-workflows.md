@@ -3,11 +3,11 @@ layout: post
 title: "Keeping An Eye Out: Monitoring Databricks Workflows"
 description: An Ask Databricks Q&A on monitoring Databricks Workflows
 image: 
-  path: /assets/img/blog/ask-databricks-1-5.jpg
+  path: /assets/img/blog/ask-databricks-1-5.webp
   srcset:
-    1060w: /assets/img/blog/ask-databricks-1-5.jpg
-    530w:  /assets/img/blog/ask-databricks-1-5@0,5x.jpg
-    265w:  /assets/img/blog/ask-databricks-1-5@0,25x.jpg
+    1060w: /assets/img/blog/ask-databricks-1-5.webp
+    530w:  /assets/img/blog/ask-databricks-1-5@0,5x.webp
+    265w:  /assets/img/blog/ask-databricks-1-5@0,25x.webp
 sitemap: true
 hide_last_modified: true
 ---

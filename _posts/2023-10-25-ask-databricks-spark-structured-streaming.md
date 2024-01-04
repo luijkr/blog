@@ -3,11 +3,11 @@ layout: post
 title: Structured Streaming With Apache Spark On Databricks
 description: An Ask Databricks Q&A on getting started with Structured Streaming in Databricks
 image: 
-  path: /assets/img/blog/ask-databricks-1-4.jpg
+  path: /assets/img/blog/ask-databricks-1-4.webp
   srcset:
-    1060w: /assets/img/blog/ask-databricks-1-4.jpg
-    530w:  /assets/img/blog/ask-databricks-1-4@0,5x.jpg
-    265w:  /assets/img/blog/ask-databricks-1-4@0,25x.jpg
+    1060w: /assets/img/blog/ask-databricks-1-4.webp
+    530w:  /assets/img/blog/ask-databricks-1-4@0,5x.webp
+    265w:  /assets/img/blog/ask-databricks-1-4@0,25x.webp
 sitemap: true
 hide_last_modified: true
 ---

@@ -3,11 +3,11 @@ layout: post
 title: How To Prepare For The Databricks Spark Developer Associate Certification
 description: A full overview of the course material
 image: 
-  path: /assets/img/blog/spark.jpg
+  path: /assets/img/blog/spark.webp
   srcset:
-    1060w: /assets/img/blog/spark.jpg
-    530w:  /assets/img/blog/spark@0,5x.jpg
-    265w:  /assets/img/blog/spark@0,25x.jpg
+    1060w: /assets/img/blog/spark.webp
+    530w:  /assets/img/blog/spark@0,5x.webp
+    265w:  /assets/img/blog/spark@0,25x.webp
 sitemap: true
 hide_last_modified: true
 ---

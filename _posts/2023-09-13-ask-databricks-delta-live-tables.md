@@ -3,11 +3,11 @@ layout: post
 title: "How To: Delta Live Tables with Ask Databricks"
 description: A Q&A on Delta Live Tables
 image: 
-  path: /assets/img/blog/ask-databricks-1-1.png
+  path: /assets/img/blog/ask-databricks-1-1.webp
   srcset:
-    1060w: /assets/img/blog/ask-databricks-1-1.png
-    530w:  /assets/img/blog/ask-databricks-1-1@0,5x.png
-    265w:  /assets/img/blog/ask-databricks-1-1@0,25x.png
+    1060w: /assets/img/blog/ask-databricks-1-1.webp
+    530w:  /assets/img/blog/ask-databricks-1-1@0,5x.webp
+    265w:  /assets/img/blog/ask-databricks-1-1@0,25x.webp
 sitemap: true
 hide_last_modified: true
 ---

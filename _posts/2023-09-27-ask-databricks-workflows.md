@@ -3,11 +3,11 @@ layout: post
 title: Go With The Flow With Databricks Workflows
 description: An Ask Databricks Q&A on getting started with Databricks Workflows
 image: 
-  path: /assets/img/blog/ask-databricks-1-2.jpg
+  path: /assets/img/blog/ask-databricks-1-2.webp
   srcset:
-    1060w: /assets/img/blog/ask-databricks-1-2.jpg
-    530w:  /assets/img/blog/ask-databricks-1-2@0,5x.jpg
-    265w:  /assets/img/blog/ask-databricks-1-2@0,25x.jpg
+    1060w: /assets/img/blog/ask-databricks-1-2.webp
+    530w:  /assets/img/blog/ask-databricks-1-2@0,5x.webp
+    265w:  /assets/img/blog/ask-databricks-1-2@0,25x.webp
 sitemap: true
 hide_last_modified: true
 ---

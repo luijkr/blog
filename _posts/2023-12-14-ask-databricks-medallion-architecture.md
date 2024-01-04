@@ -3,11 +3,11 @@ layout: post
 title: Going Gold! Using the Medallion Architecture on Databricks
 description: An Ask Databricks Q&A on getting started with the Medallion architecture
 image: 
-  path: /assets/img/blog/ask-databricks-1-6.jpeg
+  path: /assets/img/blog/ask-databricks-1-6.webp
   srcset:
-    1060w: /assets/img/blog/ask-databricks-1-6.jpeg
-    530w:  /assets/img/blog/ask-databricks-1-6@0,5x.jpeg
-    265w:  /assets/img/blog/ask-databricks-1-6@0,25x.jpeg
+    1060w: /assets/img/blog/ask-databricks-1-6.webp
+    530w:  /assets/img/blog/ask-databricks-1-6@0,5x.webp
+    265w:  /assets/img/blog/ask-databricks-1-6@0,25x.webp
 sitemap: true
 hide_last_modified: true
 ---

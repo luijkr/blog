@@ -3,11 +3,11 @@ layout: post
 title: One Ring To Rule Them All! Databricks Unity Catalog
 description: An Ask Databricks Q&A on getting started with Databricks Unity Catalog
 image: 
-  path: /assets/img/blog/ask-databricks-1-3.jpg
+  path: /assets/img/blog/ask-databricks-1-3.webp
   srcset:
-    1060w: /assets/img/blog/ask-databricks-1-3.jpg
-    530w:  /assets/img/blog/ask-databricks-1-3@0,5x.jpg
-    265w:  /assets/img/blog/ask-databricks-1-3@0,25x.jpg
+    1060w: /assets/img/blog/ask-databricks-1-3.webp
+    530w:  /assets/img/blog/ask-databricks-1-3@0,5x.webp
+    265w:  /assets/img/blog/ask-databricks-1-3@0,25x.webp
 sitemap: true
 hide_last_modified: true
 ---
