@@ -3,11 +3,11 @@ layout: post
 title: Merge vs. Apply Changes in Databricks
 description: How to effectively use Apply Changes for Change Data Capture
 image: 
-  path: /assets/img/blog/apply-changes.jpg
+  path: /assets/img/blog/apply-changes.webp
   srcset:
-    1060w: /assets/img/blog/apply-changes.jpg
-    530w:  /assets/img/blog/apply-changes@0,5x.jpg
-    265w:  /assets/img/blog/apply-changes@0,25x.jpg
+    1060w: /assets/img/blog/apply-changes.webp
+    530w:  /assets/img/blog/apply-changes@0,5x.webp
+    265w:  /assets/img/blog/apply-changes@0,25x.webp
 hide_last_modified: true
 ---
 
