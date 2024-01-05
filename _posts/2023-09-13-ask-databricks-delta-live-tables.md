@@ -39,7 +39,7 @@ Always **use version control** and break up logic into sources and transformatio
 **Performance difference is negligible.** SQL and Python result in the same performance due to Spark SQL's logical query planning. **Python is great for metaprogramming** (e.g., creating 10 tables in a loop), while **SQL UDFs are efficient for certain operations** (they're often combinations of already vectorized SQL functions).
 
 ## 💡Any plans for a GUI for developing? A point-and-click interface?
-If you desire a GUI, let your Databricks Representative know! That being said, while **GUIs are great for demos**, they can be **challenging for real-life collaboration and version control**.
+If you desire a GUI, let your Databricks Representative know! That being said, while **GUIs are great for demos**, they can be **challenging for real-life collaboration** and version control.
 
 ## 🔄 Is it possible to run a table with all its downstream and upstream dependencies?
 Currently, the [Refresh Selected](https://docs.databricks.com/en/delta-live-tables/updates.html){:target="_blank"} feature allows selecting tables to refresh in a DLT pipeline. However, **direct dependency selection isn't supported**. [personal side note: dbt does offer this capability using the plus `+` sign: `dbt run --select +my_table+`]

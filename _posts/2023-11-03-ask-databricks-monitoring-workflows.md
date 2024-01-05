@@ -58,11 +58,11 @@ The Databricks team is actively working on loops within Jobs, so **expect it to 
 
 ## 🤷 Comparing Workflows monitoring with competitors' features
 
-**Databricks Workflows are designed to be user-friendly, offering a low-code approach for both technical and non-technical users**. They can be created entirely through the UI. I’m addition, Workflows offers flexibility with JSON, YAML. A Python SDK for those who prefer a Python-based approach will be available soon, similar to Airflow. This approach aims to cater to the diverse preferences of different users within a data team, ensuring everyone can work comfortably within their chosen interface.
+Databricks Workflows are designed to be **user-friendly**, offering a **low-code** approach for both technical and non-technical users. They can be created entirely through the UI. I’m addition, Workflows offers flexibility with JSON, YAML. A Python SDK for those who prefer a Python-based approach will be available soon, similar to Airflow. This approach aims to cater to the diverse preferences of different users within a data team, ensuring everyone can work comfortably within their chosen interface.
 
 ## 📈 Effectively analyzing and monitoring Databricks Workflow performance
 
-**For historical analysis and monitoring workflows in Databricks, system tables are an excellent option.** While external integrations with tools like DataDog and Splunk are possible, they can be more challenging to set up due to data transfer issues, cost, and networking complexities. Databricks focuses on native ease of use and efficient data transfer to cater to specific use cases and streamline the monitoring process.
+For historical analysis and monitoring workflows in Databricks, **[system tables](https://docs.databricks.com/en/administration-guide/system-tables/index.html){:target="_blank"} are an excellent option**. While external integrations with tools like DataDog and Splunk are possible, they can be more challenging to set up due to data transfer issues, cost, and networking complexities. Databricks focuses on native ease of use and efficient data transfer to cater to specific use cases and streamline the monitoring process.
 
 ## 🖥️ Monitoring data quality
 
@@ -70,7 +70,7 @@ Databricks is excited about the [Lakehouse Monitoring](https://docs.databricks.c
 
 ## 👨💼 Managing environmental variables for consistent job deployment across environments
 
-**Databricks Asset Bundles offer a powerful way to manage and segregate deployments** to development, QA, and production environments. You can easily set overrides, like using a dedicated cluster for faster Dev runs while using specific job clusters in production or QA. Plus, it ensures that when you push to the Dev workspace, your workflows remain paused to prevent unintentional scheduling of production workloads. **This feature provides robust control over environment variables** and is continually improving with enhanced integration with source control systems like GitHubs.
+**[Databricks Asset Bundles](https://docs.databricks.com/en/dev-tools/bundles/index.html){:target="_blank"}** offer a powerful way to manage and segregate deployments to development, QA, and production environments. You can easily set overrides, like using a dedicated cluster for faster Dev runs while using specific job clusters in production or QA. Plus, it ensures that when you push to the Dev workspace, your workflows remain paused to prevent unintentional scheduling of production workloads. This feature **provides robust control over environment variables** and is continually improving with enhanced integration with source control systems like GitHubs.
 
 ## 🔮 (Upcoming) features to look out for
 

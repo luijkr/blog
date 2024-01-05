@@ -16,11 +16,11 @@ I love best practices ❤️ However, they have the potential to be blinding whe
 
 ## Introduction
 
-In the dynamic landscape of Data Lakes, the Medallion architecture has garnered increased attention. While the **simplicity of the Medallion architecture is beneficial for conveying its structure**, it's crucial to acknowledge that this model might **not be a one-size-fits-all solution**. The classification of (just three!) layers as "bronze," "silver," and "gold" oversimplifies the complexity, prompting debates on appropriate actions at each level.
+In the dynamic landscape of Data Lakes, the Medallion architecture has garnered increased attention. While the **simplicity of the Medallion architecture** is beneficial for conveying its structure, it's crucial to acknowledge that this model might **not be a one-size-fits-all solution**. The classification of (just three!) layers as "bronze," "silver," and "gold" oversimplifies the complexity, prompting debates on appropriate actions at each level.
 
 ## 🔍 What is the Medallion architecture?
 
-In the traditional Medallion architecture, data is sourced from diverse channels and curated in a [Data Lake](https://www.databricks.com/discover/data-lakes){:target="_blank"} environment. **This process moves data through three layers of increased quality: bronze, silver, and gold.** The bronze layer contains raw, uncleaned data, while the silver layer involves validation and cleansing. Finally, the gold layer represents aggregated business-ready data, usually for analytics. Let's go over each layer in a little more depth.
+In the traditional Medallion architecture, data is sourced from diverse channels and curated in a [Data Lake](https://www.databricks.com/discover/data-lakes){:target="_blank"} environment. **This process moves data through three layers of increased quality**: bronze, silver, and gold. The bronze layer contains raw, uncleaned data, while the silver layer involves validation and cleansing. Finally, the gold layer represents aggregated business-ready data, usually for analytics. Let's go over each layer in a little more depth.
 
 ## 🥉 Bronze
 
