@@ -62,7 +62,7 @@ Hydejack allows you to choose the background image of the sidebar, as well as th
 
 ~~~yml
 # file: `_config.yml`
-accent_image: /assets/img/sidebar-bg.jpg
+accent_image: /assets/img/sidebar-bg.webp
 accent_color: rgb(79,177,186)
 ~~~
 

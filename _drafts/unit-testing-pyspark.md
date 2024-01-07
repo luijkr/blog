@@ -86,13 +86,55 @@ In this example, we'll use the NYC Taxi dataset. This dataset consists of taxi r
 
 Let's consider a straightforward class called `DataLoader`, which only has one method that loads in the data from a CSV file.
 
-{% gist 21c1830b42587ff0b8b549623b3bd916 data_loader.py %}
+```python
+# file: "data_loader.py"
+class DataLoader:
+    def __init__(self, spark) -> None:
+        self.spark = spark
+
+    def load(self, filepath: str) -> DataFrame:
+        """
+        Load the NYC taxi dataset from the given file path.
+        Parameters:
+            filepath (str): Path to the dataset file.
+        Returns:
+            DataFrame: Loaded DataFrame containing the NYC taxi data.
+        """
+        df: DataFrame = (
+            self.spark.read.format("csv")
+            .option("header", True)
+            .option("delimiter", ",")
+            .load(filepath)
+        )
+
+        return df
+```
 
 ### DataTransformer
 
 Next, let's define a `DataTransformer` class that has a single method to perform several simple transformations.
 
-{% gist 21c1830b42587ff0b8b549623b3bd916 data_transformer.py %}
+```python
+# file: "data_transformer.py"
+class DataTransformer:
+    def __init__(self, spark: SparkSession):
+        self.spark = spark
+
+    def transform_to_year_month(self, df: DataFrame) -> DataFrame:
+        """
+        Transform the DataFrame to include columns for year and month.
+        Parameters:
+            df (DataFrame): Input DataFrame.
+        Returns:
+            DataFrame: Transformed DataFrame with additional year and month columns.
+        """
+        transformed_df = (
+            df
+            .withColumn("year", year(col("pickup_datetime")))
+            .withColumn("month", month(col("pickup_datetime")))
+        )
+        return transformed_df
+```
 
 ### Writing Unit Tests using pytest
 
@@ -104,35 +146,86 @@ We start by setting up the necessary test fixtures and data. Note that when usin
 
 First, we'll create a `spark` fixture, representing a `SparkSession`.
 
-{% gist 21c1830b42587ff0b8b549623b3bd916 spark_fixture.py %}
+```python
+# file: "spark_fixture.py"
+@pytest.fixture(scope="session")
+def spark():
+    """
+    Fixture for creating a SparkSession.
+    """
+    spark = SparkSession.builder.appName("TestApp").master("local[*]").getOrCreate()
+    yield spark
+    spark.stop()
+
+```
 
 Next, let's define a PySpark `DataFrame` with sample data to test the `test_transform_to_year_month` method.
 
-{% gist 21c1830b42587ff0b8b549623b3bd916 sample_data_fixture.py %}
+```python
+# file: "sample_data_fixture.py"
+@pytest.fixture(scope="session")
+def sample_data(spark):
+    """
+    Fixture for creating a sample DataFrame.
+    """
+    schema = StructType(
+        [
+            StructField("pickup_datetime", StringType(), True),
+            StructField("passenger_count", IntegerType(), True),
+        ]
+    )
+    data = [("2023-10-08 12:34:56", 3), ("2023-09-15 08:22:10", 1)]
+
+    return spark.createDataFrame(data, schema=schema)
+```
 
 #### Testing the Various Methods
 
 We will now write tests to validate the methods defined in the `DataLoader` and `DataTransformer` classes. Note that there is a single class corresponding to each of our original classes. _E.g.,_ for our `DataLoader` class we'll define a class with tests named `TestDataReader`.
 
-{% gist 21c1830b42587ff0b8b549623b3bd916 test_data_reader.py %}
+```python
+# file: "test_data_reader.py"
+class TestDataReader:
+    def test_load(self, spark: SparkSession):
+        """
+        Tests whether a subset of the NYC Taxi data is loaded correctly.
+        """
+        data_loader = DataLoader(spark)
+        filepath = "tests/data/taxis-subset.csv"
+        df = data_loader.load(filepath)
+
+        assert df.count() == 10
+```
 
 In our test, we check if the right number of rows are read. Of course, this test is a very simple and would not suffice in a real-world application. You would probably want to check other things, like the `DataFrame`'s schema.
 
 Likewise, we can create a separate class with our tests for the `DataTransformer` class. This test will check if the right number of rows still exist in the returned `DataFrame`. In addition, we check whether the `year` and `month` columns are created and contain the expected values. Remember that we use the `sample_data` fixture we defined ourselves, so we know which values are expected to be returned by the `transform_to_year_month` method.
 
-{% gist 21c1830b42587ff0b8b549623b3bd916 test_data_transformer.py %}
+```python
+# file: "test_data_transformer.py"
+class TestDataTransformer:
+    def test_transform_to_year_month(self, spark: SparkSession, sample_data: DataFrame):
+        """
+        Tests whether the `year` and `month` columns are created.
+        """
+        transformer = DataTransformer(spark)
+        transformed_df = transformer.transform_to_year_month(sample_data)
 
+        assert transformed_df.count() == 2
+        assert "year" in transformed_df.columns
+        assert "month" in transformed_df.columns
+        assert transformed_df.select("year").distinct().collect() == [(2023,)]
+        assert transformed_df.select("month").distinct().collect() == [(10,), (9,)]
+```
 #### Running the Tests
 
-To run all tests, simply execute the following command in your terminal:
+To run all tests, simply run `pytest` in your terminal. A special `pytest.ini` file will list which directories for `pytest` to scan for tests.
 
-```bash
-pytest
+```ini
+# file: "pytest.ini"
+[pytest]
+testpaths = tests
 ```
-
-A special `pytest.ini` file will list which directories for `pytest` to scan for tests.
-
-{% gist 21c1830b42587ff0b8b549623b3bd916 pytest.ini %}
 
 # Conclusion
 

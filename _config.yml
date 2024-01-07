@@ -89,14 +89,14 @@ theme: jekyll-theme-hydejack
 favicon: /favicon.ico
 
 # Sidebar image and theme color of the site.
-# accent_image:          /assets/img/sidebar-bg.jpg
-accent_image: /assets/img/sidebar-bg.jpg
+# accent_image:          /assets/img/sidebar-bg.webp
+accent_image: /assets/img/sidebar-bg.webp
   # image:
-  #   path:    /assets/img/blog/steve-harvey.jpg
+  #   path:    /assets/img/blog/sidebar-bg.webp
   #   srcset:
-  #     1920w: /assets/img/blog/steve-harvey@0,5x.jpg
-  #     960w:  /assets/img/blog/steve-harvey@0,25x.jpg
-  #     480w:  /assets/img/blog/steve-harvey@0,125x.jpg
+  #     1920w: /assets/img/blog/sidebar-bg@0,5x.webp
+  #     960w:  /assets/img/blog/sidebar-bg@0,25x.webp
+  #     480w:  /assets/img/blog/sidebar-bg@0,125x.webp
 
 accent_color:          rgb(51, 51, 51)
 
@@ -172,6 +172,7 @@ kramdown:
   math_engine:         mathjax
   math_engine_opts:    {}
   footnote_backlink:   '&#x21a9;&#xfe0e;'
+  toc_levels: 1..3
 
 
 # 3rd Party Integrations
@@ -414,21 +415,21 @@ jekyll_compose:
         A short ~160 character description of your post for search engines,
         social media previews, etc.
       image:
-        path: /assets/img/sidebar-bg.jpg
+        path: /assets/img/sidebar-bg.webp
     posts:
       layout: post
       description: > 
         A short ~160 character description of your post for search engines,
         social media previews, etc.
       image:
-        path: /assets/img/sidebar-bg.jpg
+        path: /assets/img/sidebar-bg.webp
     projects:
       layout: project
       description: > 
         A short ~160 character description of your post for search engines,
         social media previews, etc.
       image:
-        path: /assets/img/sidebar-bg.jpg
+        path: /assets/img/sidebar-bg.webp
       links:
         - title: Project Link
           url: https://example.com

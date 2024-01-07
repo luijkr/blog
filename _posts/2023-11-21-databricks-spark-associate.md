@@ -24,6 +24,9 @@ Covering 72% of all questions, **the DataFrame API is the most important**. Unfo
 
 _There's a lot of material to cover, so let's get going!_
 
+* this unordered seed list will be replaced by the toc
+{:toc}
+
 ---
 
 ## Apache Spark Architecture Concepts (17%)
