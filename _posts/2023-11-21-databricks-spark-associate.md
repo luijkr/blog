@@ -12,6 +12,15 @@ sitemap: true
 hide_last_modified: true
 ---
 
+```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+```
+
+
 So you're looking to get that [Spark Developer Associate](https://www.databricks.com/learn/certification/apache-spark-developer-associate){:target="_blank"} certification? As part of my own preparation for the exam, I've written a short description for each of the (high-level) topics that are mentioned at the end of the Databricks course, so you don't have to. 😉
 
 The exam consists of 60 questions, and covers three main topics:
@@ -35,7 +44,7 @@ _There's a lot of material to cover, so let's get going!_
 
 A Spark cluster is a distributed computing environment that consists of multiple interconnected machines, enabling the parallel processing of large-scale data using Apache Spark, a fast and general-purpose cluster computing system. An overview of its components:
 
-![Spark Cluster Overview](/assets/img/blog/spark-cluster-overview.webp){: style="display: block; margin: 0 auto" }
+![Spark Cluster](/assets/img/blog/spark-cluster-overview.webp){: style="display: block; margin: 0 auto" }
 
 #### Nodes
 
@@ -54,17 +63,21 @@ A Spark cluster is a distributed computing environment that consists of multiple
 
 ### Execution Hierarchy
 
+The Spark execution hierarchy consists of a Spark application containing multiple jobs, each job comprising stages, and each stage composed of tasks, representing the fundamental unit of parallel execution in the Spark computing framework.
+
+![Spark Execution Hierarchy](/assets/img/blog/spark-hierarchy-overview.webp){: style="display: block; margin: 0 auto" }
+
 #### Application
 
-- Description of a Spark application: A Spark application is a self-contained computation, consisting of a driver program and a set of parallelized tasks executed on a cluster.
+- Description of a Spark application: A Spark application is **a self-contained computation**, consisting of a driver program and a set of parallelized tasks executed on a cluster.
 
 #### Jobs
 
-- Description of Spark Jobs: A job is a Spark application's high-level unit of work. It consists of stages, and it is initiated by an action triggered in the driver program.
+- Description of Spark Jobs: A job is **a Spark application's high-level unit of work.** It consists of stages, and it is initiated by an action triggered in the driver program.
 
 #### Stages
 
-- Description of Spark stages: A stage is a set of tasks that can be executed in parallel without data shuffling. Stages are determined by transformations that have narrow dependencies.
+- Description of Spark stages: A stage is a **set of tasks that can be executed in parallel without data shuffling.** Stages are determined by transformations that have narrow dependencies.
 - Identify what separates a Job into multiple stages: A job is divided into stages at the boundaries where data needs to be shuffled between partitions.
 
 #### Tasks
@@ -75,31 +88,31 @@ A Spark cluster is a distributed computing environment that consists of multiple
 
 #### Shuffles
 
-- Description of shuffling: Shuffling is the process of redistributing data across the partitions, often involving data exchange between nodes. It can be a costly operation.
+- Description of shuffling: Shuffling is the **process of redistributing data across the partitions,** often involving data exchange between nodes. It can be a costly operation.
 - Operations that result in a shuffle: Operations like `groupByKey`, `reduceByKey`, and `join` result in shuffling.
 - Configuration prone to a lot of shuffling: Setting a high level of parallelism or having a small number of partitions can lead to increased shuffling.
 
 #### Partitions
 
-- Description of partitions: Partitions are basic units of data parallelism in Spark. Each partition holds a subset of the data, and tasks operate on partitions independently.
+- Description of partitions: Partitions are **basic units of data parallelism** in Spark. Each partition holds a subset of the data, and tasks operate on partitions independently.
 - Configurations that affect partitioning: The number of partitions is affected by configurations like `spark.default.parallelism` and can be controlled during operations like `repartition`.
 
 ### Execution Patterns
 
 #### Lazy Evaluation
 
-- Description of Lazy Evaluation: Lazy evaluation is a strategy where transformations on RDDs are not immediately executed. Instead, they are recorded, and the execution is deferred until an action is called.
-- Advantages: It minimizes unnecessary computations, optimizes execution plans, and improves performance.
+- Description of Lazy Evaluation: Lazy evaluation is a strategy where transformations on RDDs are not immediately executed. Instead, they are recorded, and the **execution is deferred until an action is called.**
+- **Advantages:** It minimizes unnecessary computations, optimizes execution plans, and improves performance.
 - Operations that trigger evaluation: Actions like `count`, `collect`, and `saveAsTextFile` trigger the evaluation of transformations.
 
 #### Transformations
 
-- Description of transformations: Transformations are operations that create a new RDD from an existing one. They are lazily evaluated.
+- Description of transformations: Transformations are **operations that create a new RDD from an existing one.** They are lazily evaluated.
 - Narrow vs. wide transformations: Narrow transformations (_e.g._, `map`) do _not_ require data shuffling, while wide transformations (_e.g._, `groupByKey`) _do_ involve shuffling.
 
 #### Actions
 
-- Description of actions: Actions are operations that trigger the execution of transformations and return a result to the driver program or write data to an external storage system.
+- Description of actions: Actions are **operations that trigger the execution of transformations** and return a result to the driver program or write data to an external storage system.
 - Operations that are actions: Examples include `count`, `collect`, `saveAsTextFile`, and `reduce`.
 
 ---
@@ -110,8 +123,11 @@ A Spark cluster is a distributed computing environment that consists of multiple
 
 #### Execution and Deployment Modes
 
-- Purpose of driver and executor setup: The driver program is responsible for coordinating the Spark application, while executors are responsible for task execution. The setup ensures the distribution and parallel processing of tasks.
-- Types of deployment modes:Cluster mode: Driver and executors run on the cluster.Client mode: Driver runs on the client machine, connecting to executors on the cluster.Local mode: Both driver and executors run on the local machine for development and testing.
+- Purpose of driver and executor setup: The **driver program is responsible for coordinating the Spark application**, while **executors are responsible for task execution**. The setup ensures the distribution and parallel processing of tasks.
+- Types of deployment modes:
+  - Cluster mode: Driver and executors run on the cluster.
+  - Client mode: Driver runs on the client machine, connecting to executors on the cluster.
+  - Local mode: Both driver and executors run on the local machine for development and testing.
 
 #### Fault Tolerance and Stability
 
@@ -122,8 +138,8 @@ A Spark cluster is a distributed computing environment that consists of multiple
 
 #### Caching
 
-- How Spark caches data: Spark caches data in memory, reducing recomputation by storing computed results.
-- When to cache DataFrames: Cache DataFrames when they are reused, reducing computation time.
+- How Spark caches data: Spark caches data **in memory**, reducing recomputation by storing computed results.
+- When to cache `DataFrames`: **Cache `DataFrames` when they are reused**, reducing computation time.
 
 #### Storage Levels
 
@@ -133,7 +149,7 @@ When to use each storage level: Choose based on memory constraints and computati
 
 #### Out-of-memory Errors
 
-- Why out-of-memory errors occur: Large datasets or inefficient transformations can exceed available memory.
+- Why out-of-memory errors occur: **Large datasets or inefficient transformations** can exceed available memory.
 - Strategies for reducing out-of-memory errors: Increase cluster size, optimize code, or use storage levels to spill to disk.
 
 #### Garbage Collection
@@ -178,16 +194,16 @@ When to use each storage level: Choose based on memory constraints and computati
 #### Variables
 
 - How to broadcast a variable: Use the `broadcast` function to mark a variable for broadcasting.
-- What it means to `broadcast` a variable: Broadcasting a variable means sharing it efficiently across all nodes to reduce data transfer overhead.
+- What it means to `broadcast` a variable: Broadcasting a variable means **sharing it efficiently across all nodes to reduce data transfer overhead.**
 
 #### Joins
 
 - Configurations for automatic broadcast joins: Set `spark.sql.autoBroadcastJoinThreshold` to determine the size threshold for automatic broadcast joins.
-- When broadcast joins are advantageous: Broadcast joins are beneficial when one side of the join is small enough to fit in memory.
+- When broadcast joins are advantageous: Broadcast joins are beneficial when **one side of the join is small enough to fit in memory.**
 
 #### Adaptive Query Execution (AQE)
 
-- Adaptive Query Execution (AQE) is an optimization technique in Spark SQL that makes use of the runtime statistics to choose the most efficient query execution plan.
+- Adaptive Query Execution (AQE) is an optimization technique in Spark SQL that makes use of the runtime statistics to **choose the most efficient query execution plan.**
 - How to set up Spark to automatically handle broadcast joins using AQE: AQE automatically handles broadcast joins without specific setup, improving performance.
 
 -------------
@@ -198,76 +214,77 @@ When to use each storage level: Choose based on memory constraints and computati
 
 #### Subsetting
 
-- Select columns from a DataFrame: Use the select method to choose specific columns.
-- Drop columns from a DataFrame: Use the drop method to remove unwanted columns.
+- Select columns from a DataFrame: Use the `select` method to choose specific columns.
+- Drop columns from a DataFrame: Use the `drop` method to remove unwanted columns.
 
 #### Renaming
-- Rename existing columns: Utilize the withColumnRenamed method to rename columns.
+
+- Rename existing columns: Utilize the `withColumnRenamed` method to rename columns.
 
 #### Manipulating
 
-- Cast column types: Use the cast method to convert a column to a different data type.
-- Create a constant column: Use the lit function to add a new column with a constant value.
-- Split an existing string column: Employ the split function to divide a string column into multiple columns.
-- Explode an array column: Use the explode function to transform array elements into separate rows.
-- Date manipulations: Use functions like date_add, datediff, and trunc for date manipulations.
+- Cast column types: Use the `cast` method to convert a column to a different data type.
+- Create a constant column: Use the `lit` function to add a new column with a constant value.
+- Split an existing string column: Employ the `split` function to divide a string column into multiple columns.
+- Explode an array column: Use the `explode` function to transform array elements into separate rows.
+- Date manipulations: Use functions like `date_add`, `datediff`, and `trunc` for date manipulations.
 
 ### Rows
 
 #### Filtering
 
-- Single-condition filtering: Use the filter or where method for basic filtering.
+- Single-condition filtering: Use the `filter` or `where` method for basic filtering.
 - Multiple-condition filtering: Combine multiple conditions using logical operators (`&``, `|``, `~``).
 
 #### Dropping
 
-- Dropping duplicates: Use the dropDuplicates (or drop_duplicates) method to remove duplicate rows.
-- Sampling: Utilize the sample method to create a random sample of the DataFrame.
+- Dropping duplicates: Use the `dropDuplicates` (or `drop_duplicates`) method to remove duplicate rows.
+- Sampling: Utilize the `sample` method to create a random sample of the DataFrame.
 
 #### Sorting
 
-- Order by one column: Use the orderBy or sort methods to sort the DataFrame by one or more columns.
+- Order by one column: Use the `orderBy` or `sort` methods to sort the `DataFrame` by one or more columns.
 - Change column order: Select columns in a different order to change the column arrangement.
 
 #### Aggregating
 
-- Summary descriptions: Use functions like describe or summary for summary statistics.
-- Single-/multi-column aggregations: Utilize functions like sum, avg, and max for single or multiple column aggregations.
-- Grouped aggregations: Use the groupBy method to perform aggregations on specific groups.
+- Summary descriptions: Use functions like `describe` or `summary` for summary statistics.
+- Single-/multi-column aggregations: Utilize functions like `sum`, `avg`, and `max` for single or multiple column aggregations.
+- Grouped aggregations: Use the `groupBy` method to perform aggregations on specific groups.
 
 ###  Miscellaneous
 
 #### Combining data
 
-- Joins: Use methods like join to combine DataFrames based on common columns.
-- Broadcast joins: Optimize small-table joins using broadcast joins.
-- Unions: Use union or unionByName to combine DataFrames vertically.
+- Joins: Use methods like `join` to combine DataFrames based on common columns. For more details on the types of `joins`, see the [documentation](https://spark.apache.org/docs/latest/sql-ref-syntax-qry-select-join.html){:target="_blank"}.
+- Broadcast joins: Optimize small-table joins using `broadcast` joins.
+- Unions: Use `union` or `unionByName` to combine `DataFrames` vertically.
 
 #### I/O
 
-- Reading and writing: Use read and write methods to read from and write to various data sources.
+- Reading and writing: Use `read` and `write` methods to read from and write to various data sources.
 - Write by partitions: Improve write performance by specifying the number of partitions.
 - Read schemas: Provide schema information when reading data.
-- Persist/caching: Use persist or cache to persist DataFrames in memory for faster access.
+- Persist/caching: Use `persist` or `cache` to persist `DataFrames` in memory for faster access.
 
 #### Partitioning
 
-- Coalescing: Use the coalesce method to reduce (only reduce!) the number of partitions without shuffling.
-- Repartitioning: Use the repartition method to either increase or decrease the number of partitions.
+- Coalescing: Use the `coalesce` method to reduce **(only reduce!)** the number of partitions without shuffling.
+- Repartitioning: Use the `repartition` method to **either increase or decrease the number of partitions.**
 
 ### Custom Functions
 
 #### Python UDFs
 
-- Create Python UDFs: Use the udf function to define a Python UDF.
-- Create Pandas UDFs: Use the pandas_udf decorator to create Pandas UDFs.
-- Execution of Python and Pandas UDFs: Apply UDFs using the withColumn method.
+- Create Python UDFs: Use the `udf` function to define a Python UDF.
+- Create Pandas UDFs: Use the `pandas_udf` decorator to create Pandas UDFs.
+- Execution of Python and Pandas UDFs: Apply UDFs using the `withColumn` method.
 
 #### Scala UDFs
 
-- Create Scala UDFs: Register Scala UDFs using the udf function.
-- Execute Scala UDFs: Apply Scala UDFs using the withColumn method.
+- Create Scala UDFs: Register Scala UDFs using the `udf` function.
+- Execute Scala UDFs: Apply Scala UDFs using the `withColumn` method.
 
 #### Spark SQL Execution
 
-- Execute a SQL query: Use the spark.sql method to execute SQL queries on DataFrames.
+- Execute a SQL query: Use the `spark.sql` method to execute SQL queries on DataFrames.
