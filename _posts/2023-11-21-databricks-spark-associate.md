@@ -12,15 +12,6 @@ sitemap: true
 hide_last_modified: true
 ---
 
-```mermaid
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
-```
-
-
 So you're looking to get that [Spark Developer Associate](https://www.databricks.com/learn/certification/apache-spark-developer-associate){:target="_blank"} certification? As part of my own preparation for the exam, I've written a short description for each of the (high-level) topics that are mentioned at the end of the Databricks course, so you don't have to. 😉
 
 The exam consists of 60 questions, and covers three main topics:
@@ -44,7 +35,7 @@ _There's a lot of material to cover, so let's get going!_
 
 A Spark cluster is a distributed computing environment that consists of multiple interconnected machines, enabling the parallel processing of large-scale data using Apache Spark, a fast and general-purpose cluster computing system. An overview of its components:
 
-![Spark Cluster](/assets/img/blog/spark-cluster-overview.webp){: style="display: block; margin: 0 auto" }
+![Spark Cluster](/assets/img/blog/spark-cluster-overview.webp){: width="75%" style="display: block; margin: 0 auto" }
 
 #### Nodes
 
@@ -65,7 +56,7 @@ A Spark cluster is a distributed computing environment that consists of multiple
 
 The Spark execution hierarchy consists of a Spark application containing multiple jobs, each job comprising stages, and each stage composed of tasks, representing the fundamental unit of parallel execution in the Spark computing framework.
 
-![Spark Execution Hierarchy](/assets/img/blog/spark-hierarchy-overview.webp){: style="display: block; margin: 0 auto" }
+![Spark Execution Hierarchy](/assets/img/blog/spark-hierarchy-overview.webp){: width="75%" style="display: block; margin: 0 auto" }
 
 #### Application
 
