@@ -33,19 +33,23 @@ _There's a lot of material to cover, so let's get going!_
 
 ### Clusters
 
+A Spark cluster is a distributed computing environment that consists of multiple interconnected machines, enabling the parallel processing of large-scale data using Apache Spark, a fast and general-purpose cluster computing system. An overview of its components:
+
+![Spark Cluster Overview](/assets/img/blog/spark-cluster-overview.webp){: style="display: block; margin: 0 auto" }
+
 #### Nodes
 
-- Driver nodes: The driver node is the entry point for a Spark application. It runs the `main` function and creates the `SparkContext`, coordinating the distribution of tasks across worker nodes.
-- Worker nodes: Worker nodes are responsible for executing tasks assigned by the driver. They store data and perform computations.
+- Driver nodes: The driver node is the **entry point for a Spark application**. It runs the `main` function and creates the `SparkContext`, **coordinating the distribution of tasks across worker nodes**.
+- Worker nodes: Worker nodes are responsible for **executing tasks assigned by the driver**. They store data and perform computations.
 
 #### Executors
 
-- Relationship with worker nodes: Executors are processes launched on worker nodes to run Spark tasks. Each worker node can have multiple executors.
+- Relationship with worker nodes: Executors are **processes launched on worker nodes** to run Spark tasks. Each worker node can have multiple executors.
 - Relationship with the JVM: Each executor runs within a Java Virtual Machine (JVM), isolating tasks and providing fault tolerance.
 
 #### Slots
 
-- Description: A slot is a basic unit of parallelism in Spark. It represents the computational capacity of an executor to execute a single task.
+- Description: A slot is a **basic unit of parallelism** in Spark. It represents the computational capacity of an executor to execute a single task.
 - Purpose: Slots allow multiple tasks to run concurrently on a single executor, maximizing parallelism and resource utilization.
 
 ### Execution Hierarchy
