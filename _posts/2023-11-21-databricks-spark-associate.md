@@ -12,13 +12,14 @@ sitemap: true
 hide_last_modified: true
 ---
 
-{% mermaid %}
+```mermaid
 graph TD;
     A-->B;
     A-->C;
     B-->D;
     C-->D;
-{% endmermaid %}
+```
+
 
 So you're looking to get that [Spark Developer Associate](https://www.databricks.com/learn/certification/apache-spark-developer-associate){:target="_blank"} certification? As part of my own preparation for the exam, I've written a short description for each of the (high-level) topics that are mentioned at the end of the Databricks course, so you don't have to. 😉
 
