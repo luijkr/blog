@@ -2,6 +2,12 @@
 layout: post
 title: Docker, GitHub, Actions!
 subtitle: CI/CD Using Docker and GitHub Actions
+image: 
+  path: /assets/img/blog/docker-github.webp
+  srcset:
+    1060w: /assets/img/blog/docker-github.webp
+    530w:  /assets/img/blog/docker-github@0,5x.webp
+    265w:  /assets/img/blog/docker-github@0,25x.webp
 hide_last_modified: true
 ---
 
@@ -11,7 +17,7 @@ In modern software development, Continuous Integration and Continuous Deployment
 
 But if we can already specify the desired operating system, and if we can just install our dependencies on there, **why do we need Docker?**
 
-# Why Use Docker?
+## Why Use Docker?
 
 Good question. Let's dive into some reasons why you might choose to use a Docker container instead of only choosing some operating system using the `runs-on` parameter provided by GitHub Actions.
 
@@ -25,7 +31,7 @@ Good question. Let's dive into some reasons why you might choose to use a Docker
 
 **5. Version Control:** Docker images can be version-controlled, allowing you to track changes to the environment setup and easily roll back to previous versions if needed.
 
-# Unit Testing a PySpark Application Using Docker and GitHub Actions
+## Unit Testing a PySpark Application Using Docker and GitHub Actions
 
 Now that we've got that out of the way, let's look at a simple CI/CD pipeline that aims to run unit tests for a PySpark project using Docker. Since we're using GitHub Actions, you can find this in the `.github` folder.
 
@@ -55,7 +61,25 @@ When creating a Docker container for any project, it's essential (or at least ad
 
 With that in mind, let's go over the `Dockerfile` for the aforementioned PySpark application.
 
-{% gist 566b2ccae5f2bf68dd5bfea2ad17f56c Dockerfile %}
+```Dockerfile
+FROM ubuntu:latest
+
+# Install required dependencies for your project
+RUN apt-get update && apt-get install -y \
+    python3.10 \
+    pip \
+    openjdk-8-jdk
+
+# Copy your project files into the container
+COPY . /
+
+# Install Python requirements
+RUN pip install -r requirements.txt
+
+# Run the unit tests by invoking pytest
+CMD ["pytest"]
+```
+
 
 **What does this Dockerfile do?**
 
@@ -69,7 +93,27 @@ With that in mind, let's go over the `Dockerfile` for the aforementioned PySpark
 
 Without further ado, below is the workflow for GitHub Actions, and here's the [resulting run on GitHub](https://github.com/luijkr/unit-testing-pyspark/actions/runs/6970322035){:target="_blank"}.
 
-{% gist 566b2ccae5f2bf68dd5bfea2ad17f56c cicd.yaml %}
+```yaml
+name: GitHub Actions for PySpark
+
+run-name: GitHub Actions for Unit Testing PySpark
+
+on: [push]
+
+jobs:
+  test-pyspark-applicaiton:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+
+      - name: Run tests in Docker container
+        uses: docker://luijkr/unittestingpyspark:latest
+        with:
+          platforms: linux/amd64
+```
 
 Here's a breakdown of the steps:
 
@@ -85,6 +129,6 @@ Here's a breakdown of the steps:
 
 Overall, the workflow clones the repository, echoes a message to indicate successful code checkout, and then runs PySpark tests within a Docker container.
 
-# Conclusion
+## Conclusion
 
 Integrating Docker containers into your CI/CD workflow can significantly streamline and enhance the efficiency of your software development and deployment processes. Many flavors exist when it comes to places where your CI/CD pipelines can run. Here I used GitHub Actions as that is freely available to everyone.
