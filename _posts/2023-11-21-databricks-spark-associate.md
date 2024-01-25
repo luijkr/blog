@@ -225,7 +225,7 @@ When to use each storage level: Choose based on memory constraints and computati
 #### Filtering
 
 - Single-condition filtering: Use the `filter` or `where` method for basic filtering.
-- Multiple-condition filtering: Combine multiple conditions using logical operators (`&``, `|``, `~``).
+- Multiple-condition filtering: Combine multiple conditions using logical operators (`&`, `|`, `~`).
 
 #### Dropping
 
