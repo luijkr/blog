@@ -35,7 +35,7 @@ Both `coalesce` and `repartition` are **used to control the partitioning of data
 
 ### Coalesce
 
-- `coalesce` reduces the number of partitions without a full shuffle. It achieves this by c**ombining existing partitions**.
+- `coalesce` reduces the number of partitions without a full shuffle. It achieves this by **combining existing partitions**.
 - It's efficient for **consolidating data** and reducing the number of partitions, which can improve performance.
 - Ideal when the goal is to **decrease the partition count** without significant data movement.
 
