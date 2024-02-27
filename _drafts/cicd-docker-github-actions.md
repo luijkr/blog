@@ -35,8 +35,8 @@ Good question. Let's dive into some reasons why you might choose to use a Docker
 
 Now that we've got that out of the way, let's look at a simple CI/CD pipeline that aims to run unit tests for a PySpark project using Docker. Since we're using GitHub Actions, you can find this in the `.github` folder.
 
-{: .box-note}
 Any code used and the full example can be found in [GitHub](https://github.com/luijkr/unit-testing-pyspark/){:target="_blank"} in the `.github` folder. This repos contains a very basic pipeline using PySpark.
+{:.note}
 
 **First, we have to create an image.** To achieve this, a Dockerfile is needed that specifies what goes into this image. The image then serves as a blueprint for a container. But what should we include?
 
@@ -54,8 +54,8 @@ When creating a Docker container for any project, it's essential (or at least ad
 
 5. **Execution Command**: Define the command to execute your application within the Docker container. This command should trigger the appropriate scripts or processes to run your project.
 
-{: .box-note}
-**Base Images:** Choose wisely. Go with an official image whenever possible, and one that is as small as possible for your goal in order to avoid creating excessively large images.
+{:.note title="on base images"}
+**Choose wisely.** Go with an official image whenever possible, and one that is as small as possible for your goal in order to avoid creating excessively large images.
 
 ### Dockerfile
 
