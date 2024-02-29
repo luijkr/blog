@@ -38,28 +38,28 @@ These principles pertain to the values themselves. A classic example would be `N
 Do the data values accurately **represent the real-world entities** they are meant to reflect?
 
 The online retailer maintains a database of product prices. An inaccuracy occurs when the **listed price of a product does not match the actual price at checkout.** Any customer would be at least surprised by this, and probably dissatisfied.
-{:.note}
+{:.note title="example"}
 
 #### Precision
 
 Precision in data refers to its **level of detail.** High precision ensures that the data values are specific and not overly generalized.
 
 Customer preferences are recorded for personalized recommendations in the online store. However, **if the data only captures broad product categories** without considering specific attributes, such as color or brand, the resulting **recommendations may lack precision.** Consequently, these less accurate recommendations may not be as relevant to customers.
-{:.note}
+{:.note title="example"}
 
 #### Validity
 
 **Valid data adheres to pre-set rules and constraints.** Checks for data validation aid in ensuring that data follows expected formats, ranges, and conditions.
 
 During the checkout process, customers are required to enter their shipping addresses. Implementing **address validation checks ensures the validity of shipping information,** reducing delivery issues and avoiding customer frustration.
-{:.note}
+{:.note title="example"}
 
 #### Completeness
 
 Complete data contains all **the information needed for a specific use case or analysis.** Missing data can lead to biases, thus impairing the efficiency of decision-making processes.
 
 Customers have the option to review their purchases. However, if a **substantial number of product reviews are missing or incomplete,** it may be difficult for decision-makers to accurately gauge customer satisfaction.
-{:.note}
+{:.note title="example"}
 
 ### 2. How useful is the data?
 
@@ -70,21 +70,21 @@ While it's great that all data is stored in your favorite database and modeled u
 Usable data is displayed in **a format that is comprehensible and easy to work with.** This involves well-structured datasets, clear documentation, and user-friendly interfaces for accessing and modifying the data. The definition of 'user-friendly' varies depending on the end user. For instance, the data needs of developers differ from those of the sales department.
 
 The BI engineer delivers complex sales reports to the marketing team. Without **clear labels** or **structure**, it becomes hard to extract meaningful information, possibly abandoning the dashboard.
-{:.note}
+{:.note title="example"}
 
 #### Relevance
 
 **Relevant data aligns with the organization's goals** and objectives or those of a specific project. Irrelevant data can create noise and detract from key insights.
 
 Our online retailer tracks browsing behavior, but for a marketing campaign focused on demographics, **data like device type may be irrelevant.** By focusing on demographics, the dataset aligns more with the project's goals.
-{:.note}
+{:.note title="example"}
 
 #### Integrity
 
 Data integrity ensures that **relationships between different data elements are maintained.** For example, if data in one part of the dataset references data in another part, the integrity of these relationships must be preserved.
 
 Online retailers store product and order data. **Maintaining data integrity is key to associating each order with the correct product,** as discrepancies could result in shipping incorrect items to customers.
-{:.note}
+{:.note title="example"}
 
 ### 3. When is the data updated?
 
@@ -95,14 +95,14 @@ Infrequent one-time data dumps are seldom sufficient. The **timely updating of d
 Timely data is up-to-date and **reflects the current state of affairs.** Outdated information may lead to obsolete analyses and decisions based on inaccurate or irrelevant data.
 
 Any online retailer relies on inventory data to manage stock levels efficiently. **If the inventory data is not updated** in real-time or near real-time, there's a **risk of overselling products** that are no longer in stock. This is especially crucial during peak shopping periods.
-{:.note}
+{:.note title="example"}
 
 #### Consistency
 
 Consistent data means that similar data elements are uniform and follow **the same format and conventions throughout the dataset.** Inconsistencies can lead to confusion and errors during analysis.
 
 Oftentimes, online retailers use a combination of internal and external data sources to track customer demographics. **Inconsistencies in how age or income data is formatted** (e.g., different date formats, varying units of currency) can hinder the integration and analysis of this information.
-{:.note}
+{:.note title="example"}
 
 ## Data Quality Is Not Simply Quality Data
 
