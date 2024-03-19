@@ -8,12 +8,12 @@ author1:
   # Used at the bottom of each page and at the top of the `about` layout
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
   about:             |
-    I'm a passionate data engineer with a focus on Databricks at a dynamic boutique consultancy.
+    I'm a passionate data engineer at a dynamic boutique consultancy that focuses primarly on Databricks.
     Outside the realm of data, my interests extend to software development.
 
-    Off-duty, you'll find me pushing my limits in CrossFit and exploring the intricacies of the Serbo-Croatian language (bok svima! / здраво свима!).
+    Off-duty, you'll find me pushing my limits in CrossFit or exploring the intricacies of the Serbo-Croatian language (bok svima! / здраво свима!).
 
-    Here I (am trying to) document any new or interesting insights, technologies, or techniques I come across.
+    Here I (try to 😉) document any new or interesting insights, technologies, or techniques I come across.
     Mostly to learn about them myself, but hopefully it's of some use to you, too!
 
   # This photo will be used in the about section
