@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Databricks and Generative AI
-description: CTO Matei Zahari Discusses GenAI On NextGenLakehouse
+title: How Generative AI Within Databricks Improves Our Engineering Lives
+description: Databricks CTO Matei Zahari discusses generative AI
 image: 
   path: /assets/img/blog/nextgenlakehouse.webp
   srcset:
@@ -10,7 +10,6 @@ image:
     265w:  /assets/img/blog/nextgenlakehouse@0,25x.webp
 hide_last_modified: true
 ---
-# Databricks CTO Matei Zahari - NextGenLakehouse
 
 NextGenLakehouse have a great [newsletter on Substack](https://nextgenlakehouse.substack.com/){:target="_blank"} and their own [YouTube channel](https://www.youtube.com/@nextgenlakehouse){:target="_blank"}. They recently had Databricks CTO [Matei Zaharia](https://www.linkedin.com/in/mateizaharia/){:target="_blank"} on to discuss the Databricks platform and how Generative AI will make all of our lives that much easier 🙂
 
@@ -74,4 +73,4 @@ Moreover, Databricks is **advancing towards more intuitive search and discovery 
 
 ## 🤖 AI will take our jobs!
 
-Despite advancements in code generation and data intelligence, the role of data engineers and scientists will persist. However, their focus will shift from lower-level coding tasks towards more complex conceptual and business problems. Certain questions related to data analysis require more context that cannot be given by AI. For example, insights from various stakeholders within the organization are needed - such as the CFO or the legal department, in order to effectively address business problems. So no need to worry, AI won’t take your jobs. Data professionals will continue to play an important role in providing the business with meaningful analyses, albeit with less emphasis on coding tasks and more on providing insightful answers to pressing business questions.
+Despite advancements in code generation and data intelligence, the role of data engineers and scientists will persist. However, their **focus will shift from lower-level coding tasks towards more complex conceptual and business problems**. Certain questions related to data analysis require more context that cannot be given by AI. For example, insights from various stakeholders within the organization are needed - such as the CFO or the legal department, in order to effectively address business problems. So **no need to worry, AI won’t take your jobs**. Data professionals will continue to play an important role in providing the business with meaningful analyses, albeit with less emphasis on coding tasks and more on providing insightful answers to pressing business questions.
