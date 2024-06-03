@@ -3,11 +3,11 @@ layout: post
 title: Apache Parquet
 description: Apache Parquet
 image: 
-  path: /assets/img/blog/nextgenlakehouse.webp
+  path: /assets/img/blog/parquet.webp
   srcset:
-    1060w: /assets/img/blog/nextgenlakehouse.webp
-    530w:  /assets/img/blog/nextgenlakehouse@0,5x.webp
-    265w:  /assets/img/blog/nextgenlakehouse@0,25x.webp
+    1060w: /assets/img/blog/parquet.webp
+    530w:  /assets/img/blog/parquet@0,5x.webp
+    265w:  /assets/img/blog/parquet@0,25x.webp
 hide_last_modified: true
 ---
 
@@ -17,7 +17,7 @@ Before we get into the nitty gritty, let’s look at **what Parquet is in a nuts
 
 ## Technical Details of the Parquet Format
 
-### Columnar Storage
+### 💾 Columnar Storage
 
 Parquet uses columnar storage, which means the **data is organized by columns** rather than rows. In traditional row-based storage, data is stored sequentially row by row, where all the fields of a row are stored together. Conversely, in columnar storage, **all the values of a single column are stored together**.
 
@@ -81,18 +81,22 @@ A hypothetical table containig employee data
 
 **Row-based formats** will store data per row. That way, each row contains a value for each of the four columns in our table. For the above table, this would look like this:
 
-[https://placehold.co/600x200](https://placehold.co/600x200)
+![Example row-based storage](/assets/img/blog/parquet-rowstorage.webp){: width="75%" style="display: block; margin: 0 auto" }
+An overview of a row-based storage.
+{:.figure}
 
 Parquet, however, uses **columnar storage**, meaning it **stores the data for each column separately**. Put differently, all values for all rows in our example table are stored together:
 
-[https://placehold.co/600x200](https://placehold.co/600x200)
+![Example column-based storage](/assets/img/blog/parquet-columnstorage.webp){: width="75%" style="display: block; margin: 0 auto" }
+An overview of a column-based storage.
+{:.figure}
 
 Columnar storage brings with it a set of unique advantages over row-based storage, including selective column selection - also known as **column pruning**, and **improved data compression**.
 {:.note title="💡Columnar vs. row-based storage"}
 
 This organization is particularly advantageous for analytical queries that often require reading only a few columns from a large dataset - also known as **column pruning**. By storing data in columns, systems can read only the relevant columns needed for a query, which **minimizes I/O operations**. This leads to improved performance, especially in large-scale data processing tasks. In addition, columnar storage **enhances data compression** capabilities due to the homogeneity of data within each column.
 
-### Data Encoding
+### 🧩 Data Encoding
 
 Parquet employs **various data type-specific encoding techniques to optimize storage** and improve query performance. Dictionary encoding, for example, replaces repeated occurrences of values with a unique key, significantly reducing the space needed to store frequent values.
 
@@ -108,18 +112,18 @@ In this case, the `Department` values are replaced with integer codes, significa
 While **general-purpose encoding techniques do exist** that can handle multiple data types - suitable for row-based storage formats, they are **not as efficient as specific encoding techniques** for a certain data type.
 {:.note title="💡General-purpose vs. specific encoding techniques"}
 
-### Compression
+### 💪 Compression
 
 **Parquet supports multiple compression algorithms** to further reduce the storage footprint and enhance read/write performance. Two of the most commonly used algorithms include Snappy and Gzip.
 
 - **Snappy.** Designed for fast compression and decompression, making it **ideal for real-time applications** where speed is critical.
 - **Gzip.** Provides **higher compression ratios** at the cost of slower performance, suitable for scenarios where **storage savings are more important** than speed.
 
-### Schema Evolution
+### 🧬 Schema Evolution
 
 Schema evolution is a feature in Parquet that allows changes to the schema of a dataset over time without requiring a complete rewrite of the existing data. For example, Parquet supports **adding new columns**, **removing existing ones**, and **changing the data types** of columns.
 
-### Metadata
+### 💽 Metadata
 
 Parquet files contain rich metadata at various levels.
 
@@ -127,7 +131,7 @@ Parquet files contain rich metadata at various levels.
 - **Column-level:** minimum and maximum values for numeric columns, `null` counts, distinct counts. The min/max values are used to skip reading certain rows. The latter actually is useful at the *column-chunk* level, but more on that later.
 - **Footer metadata:** contains a summary of the metadata needed to process the file, and the schema definition.
 
-### File Structure
+### 🧱 File Structure
 
 #### Header
 
