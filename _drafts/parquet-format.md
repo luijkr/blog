@@ -237,7 +237,7 @@ The footer contains important **metadata about the file**, including:
 - **Column chunk metadata**: statistics and encoding/compression information for each column chunk.
 - **Key-value metadata**: arbitrary key-value pairs that can store additional custom metadata provided by the user or application.
 
-### Efficiently Querying Data Using Parquet’s File Structure
+### An Example: Efficiently Querying Data Using Parquet’s File Structure
 
 Let’s look at an example of how Parquet’s file structure is going to help us efficiently load data from the `employee` table defined earlier. Particularly how row groups and column chunks and their metadata improve query efficiency. First, let’s look at what the Parquet file structure might look like for our `employee` table.
 
@@ -293,6 +293,9 @@ The result? The following single row. Now that's efficiency!
 | Name | Age | Department |
 | === | === | === |
 | David | 40 | Marketing |
+{:.stretch-table}
+Result of the query
+{:.figcaption}
 
 ## 6. Conclusion
 
