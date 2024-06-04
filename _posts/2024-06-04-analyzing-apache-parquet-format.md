@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Apache Parquet
-description: Apache Parquet
+title: Analyzing Apache Parquet
+description: A Closer Look Into Apache Parquet
 image: 
   path: /assets/img/blog/parquet.webp
   srcset:
@@ -222,11 +222,8 @@ Rows corresponding to the second row group
 
 Within each row group, data is stored in column chunks. Each column chunk **contains the data for a specific column within a row group**. As such, column chunks are the vertical partitions within row groups, and they contain the actual data values for the column they represent.
 
-Given the example row groups above, the column chunks for these row groups would be defined as:
-
-[https://placehold.co/600x200](https://placehold.co/600x200)
-
-Note that the metadata mentioned earlier is stored at this column-chunk level, not at the column level. This allows for skipping certain rows, *e.g.*, based on numeric values.
+Note that the metadata mentioned earlier is stored at this _column-chunk level_, not at the column level. This allows for skipping certain rows, *e.g.*, based on numeric values.
+{:.note title="💡Column-chunk metadata"}
 
 #### Footer
 
@@ -288,7 +285,7 @@ Using this query, the following steps will be executed:
     - The query engine applies the filter `Age > 40 AND Department = 'Marketing'` to the data read from the relevant column chunks.
     - Rows that meet the criteria are selected, and the required columns (`Name`, `Department`, `Age`) are returned.
 
-The result? The following single row. Now that's efficiency!
+The result? The following single row with only three columns selected. Now that's efficiency!
 
 | Name | Age | Department |
 | === | === | === |
@@ -297,7 +294,7 @@ The result? The following single row. Now that's efficiency!
 Result of the query
 {:.figcaption}
 
-## 6. Conclusion
+## Closing Thoughts and Extending Parquet
 
 Given Apache Parquet's columnar storage, efficient encoding, and robust schema management, it’s no wonder that is an often-used file format for large-scale data storage and efficient querying. This includes being used by Delta Lake, which adds an extra layer on top of Parquet, even further increasing its performance and scalability.
 
