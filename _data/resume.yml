@@ -1,0 +1,38 @@
+basics:
+  name: "Your Full Name"
+  label: "Your Job Title"
+  summary: >- 
+    A brief summary of your skills and experience. 
+    Highlight your strengths and career goals here.
+  email: "your_email@example.com"
+  website: "https://yourwebsite.com"  # Optional
+
+work:
+  - company: "Company Name 1"
+    position: "Job Title"
+    startDate: "2020-01-01"
+    endDate: "2023-12-31"  # Optional, leave blank if currently employed
+    summary: >- 
+      A brief description of your responsibilities and achievements 
+      at this company. Use bullet points for clarity.
+
+  - company: "Company Name 2"  # Add more work experiences as needed
+    position: "Job Title"
+    startDate: "2018-01-01"
+    endDate: "2019-12-31"
+    summary: >- 
+      Another description of your work experience.
+
+education:
+  - institution: "University Name"
+    degree: "Bachelor of Science in (Your Major)"
+    startDate: "2015-09-01"
+    endDate: "2018-05-31"
+    summary: >-  # Optional
+      List any relevant coursework or achievements here.
+
+skills:  # Optional section
+  - name: "Skill 1"
+  - name: "Skill 2"
+  - name: "Skill 3"
+
