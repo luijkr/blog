@@ -28,13 +28,13 @@ Simple stuff. How can we use Workflows to call the above code for multiple count
 
 Previously, we had to **manually create separate tasks** for these. Assuming we have **three different countries** we want to run this for, **the job would have three tasks**.
 
-![Level 0 Job](/assets/img/blog/for-each-level-0.png){: width="75%" style="display: block; margin: 0 auto" }
+![Level 0 Job](/assets/img/blog/for-each-level-0.webp){: width="75%" style="display: block; margin: 0 auto" }
 Databricks Job with three manually created tasks, each using a different value for the same `country` parameter
 {:.figure}
 
 This works just fine. Going into the result of the first task, we see **it successfully printed the input `country` parameter**.
 
-![Level 0 Task Output](/assets/img/blog/param-task-run-0.png){: width="75%" style="display: block; margin: 0 auto" }
+![Level 0 Task Output](/assets/img/blog/param-task-run-0.webp){: width="75%" style="display: block; margin: 0 auto" }
 Output of a task running a parameterized notebook
 {:.figure}
 
@@ -48,7 +48,7 @@ Instead of manually creating these tasks as in *Level 0*, we want to use the new
 
 **First, create a task of the type *For each***. Note how for the *Inputs* field, I manually specify a JSON like object to loop over. This will make sure our notebook is run three times, as I’ve listed three input values here.
 
-![Level 1 Job](/assets/img/blog/for-each-level-1.png){: width="75%" style="display: block; margin: 0 auto" }
+![Level 1 Job](/assets/img/blog/for-each-level-1.webp){: width="75%" style="display: block; margin: 0 auto" }
 Defining a *For Each* task using hardcoded input values
 {:.figure}
 
@@ -56,13 +56,13 @@ Next, within this parent task, **define another child task to execute**. Note ho
 
 This **child task will be executed once for each element** in the *Inputs* field. Which parameterized notebook to use is specified in the child task. More importantly, we also **specify the parameter to pass to the notebook**. Here we use the **`{% raw %}{{ input }}{% endraw %}` notation to indicate the current element of our input array** - taken from the *Inputs* option listed in the parent task.
 
-![Level 1 Job Child Task](/assets/img/blog/for-each-level-1-child-task.png){: width="75%" style="display: block; margin: 0 auto" }
+![Level 1 Job Child Task](/assets/img/blog/for-each-level-1-child-task.webp){: width="75%" style="display: block; margin: 0 auto" }
 Child task of a *For Each* parent. The same `country` parameter is used
 {:.figure}
 
 This creates a job with three input parameters that we can run. Running it indeed shows three tasks - as expected.
 
-![Task runs for child tasks](/assets/img/blog/for-each-level-1-tasks-run.png){: width="75%" style="display: block; margin: 0 auto" }
+![Task runs for child tasks](/assets/img/blog/for-each-level-1-tasks-run.webp){: width="75%" style="display: block; margin: 0 auto" }
 Three child tasks run as part of a *For Each* parent task
 {:.figure}
 
@@ -82,7 +82,7 @@ dbutils.jobs.taskValues.set(key="countries", value=values)
 
 The job below now looks almost identical to the one created for Level 1, except that we have added an extra step at the beginning. This extra step sets the task values. In addition, the value for the *Inputs* option is also slightly different. We now **use the `countries` task values set in the `Set_Parameters` task**. Referencing each element in the inner child task remains the same - *i.e.,*, {% raw %}`{{ input }}`{% endraw %}.
 
-![Level 2 Job](/assets/img/blog/for-each-level-2.png){: width="75%" style="display: block; margin: 0 auto" }
+![Level 2 Job](/assets/img/blog/for-each-level-2.webp){: width="75%" style="display: block; margin: 0 auto" }
 Task values set in the *Set_Parameters* task are accessed in the *Input* field
 {:.figure}
 
