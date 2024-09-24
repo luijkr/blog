@@ -26,7 +26,7 @@ Simple stuff. How can we use Workflows to call the above code for multiple count
 
 ### 💾 Level 0: Back In the Olden Days
 
-Previously, we had to **manually create separate tasks** for these. Assuming we have three different countries we want to run this for, a job for this job would look as follows.
+Previously, we had to **manually create separate tasks** for these. Assuming we have **three different countries** we want to run this for, **the job would have three tasks**.
 
 ![Level 0 Job](/assets/img/blog/for-each-level-0.png){: width="75%" style="display: block; margin: 0 auto" }
 Databricks Job with three manually created tasks, each using a different value for the same `country` parameter
@@ -42,7 +42,7 @@ Manually creating three instances of the same task is a **bad practice**, and cu
 
 *How can we improve this?*
 
-### ⌨️ Level 1: Hardcode Values In A Job
+### ⌨️ Level 1: For Each, But With Hardcoded Task Values
 
 Instead of manually creating these tasks as in *Level 0*, we want to use the newly introduced *For Each* task type. This can be achieved using a **two-step approach**, where we **create a parent task** and a **child task** to execute multiple times.
 
@@ -54,19 +54,19 @@ Defining a *For Each* task using hardcoded input values
 
 Next, within this parent task, **define another child task to execute**. Note how in the UI the inner (child) task is now selected.
 
-This **child task will be executed once for each element** in the *Inputs* field. Which parameterized notebook to use is specified in the child task. More importantly, we also **specify the parameter to pass to the notebook**. Here we use the **`{{ input }}` notation to indicate the current element of our input array** - taken from the *Inputs* option listed in the parent task.
+This **child task will be executed once for each element** in the *Inputs* field. Which parameterized notebook to use is specified in the child task. More importantly, we also **specify the parameter to pass to the notebook**. Here we use the **`{% raw %}{{ input }}{% endraw %}` notation to indicate the current element of our input array** - taken from the *Inputs* option listed in the parent task.
 
 ![Level 1 Job Child Task](/assets/img/blog/for-each-level-1-child-task.png){: width="75%" style="display: block; margin: 0 auto" }
 Child task of a *For Each* parent. The same `country` parameter is used
 {:.figure}
 
-This creates a job with three input parameters that we can run. Running it indeed shows three tasks.
+This creates a job with three input parameters that we can run. Running it indeed shows three tasks - as expected.
 
 ![Task runs for child tasks](/assets/img/blog/for-each-level-1-tasks-run.png){: width="75%" style="display: block; margin: 0 auto" }
 Three child tasks run as part of a *For Each* parent task
 {:.figure}
 
-And again, it's possible to **go into the output of each task individually** to see the expected `print` statements being executed.
+Just as with any other type of task, it's possible to **go into the output of each task individually** to see the expected `print` statements being executed.
 
 ## 🪄 Level 2: Generate Task Values Programatically
 
@@ -80,15 +80,13 @@ values = ["The Netherlands", "United States", "Australia"]
 dbutils.jobs.taskValues.set(key="countries", value=values)
 ```
 
-The job below now looks almost identical to the one created for Level 1, except that we have added an extra step at the beginning. This extra step sets the task values. In addition, the value for the *Inputs* option is also slightly different. We now **use the `countries` task values set in the `Set_Parameters` task**. Referencing each element in the inner child task remains the same - *i.e.,*, `{{input}}`.
+The job below now looks almost identical to the one created for Level 1, except that we have added an extra step at the beginning. This extra step sets the task values. In addition, the value for the *Inputs* option is also slightly different. We now **use the `countries` task values set in the `Set_Parameters` task**. Referencing each element in the inner child task remains the same - *i.e.,*, {% raw %}`{{ input }}`{% endraw %}.
 
 ![Level 2 Job](/assets/img/blog/for-each-level-2.png){: width="75%" style="display: block; margin: 0 auto" }
 Task values set in the *Set_Parameters* task are accessed in the *Input* field
 {:.figure}
 
 ### 🧙‍♂️ Level 3: Nested For Each Loops
-
-When you’ve gotten this far, *you now truly are a wizard, Harry!* 😉
 
 A logical next step would be to use nested for loops. For example, within each country we also want to loop over some of its cities. This is **not natively supported in Workflows**. However, as a workaround, we could **use *For Each* to call another job**. Given the input below, we would create a second job - also containing a *For Each* task - looping over the provided cities.
 
@@ -111,22 +109,26 @@ values = [
 dbutils.jobs.taskValues.set(key="countries", value=values)
 ```
 
+When you’ve gotten this far, *you now truly are a wizard, Harry!* 😉
+
 ## Limitations And Considerations
 
 There are several limitations and things to consider when using the *For Each* task type.
 
 ### Single Task
 
-For each **only allows a single task to be looped over**. An orchestrator like Azure Data Factory (ADF) *does* allow [looping over multiple tasks](https://learn.microsoft.com/en-us/azure/data-factory/control-flow-for-each-activity){:target="_blank"}, which are then run in sequence. Airflow is even more flexible, and allows all kinds of customer structures - *e.g.*, using [branching](https://www.astronomer.io/docs/learn/airflow-branch-operator){:target="_blank"}.
+*For Each* **only allows a single task to be looped over**. An orchestrator like Azure Data Factory (ADF) *does* allow [looping over multiple tasks](https://learn.microsoft.com/en-us/azure/data-factory/control-flow-for-each-activity){:target="_blank"}, which are then run in sequence. Airflow is even more flexible, and allows all kinds of customer structures - *e.g.*, using [branching](https://www.astronomer.io/docs/learn/airflow-branch-operator){:target="_blank"}.
+
+Of course, a notebook could execute many steps, but it would have been nice to separate different steps in separate tasks.
 
 ### Nested Loops
 
-**Nested loops are not supported** by Workflows - nor is it by ADF. As mentioned in Level 3, a workaround is to **use an outer *For Each* loop to call another job**.
+Nested loops are **not supported** by Workflows - nor is it by ADF. As mentioned in Level 3, a workaround is to **use an outer *For Each* loop to call another job**.
 
 ### Concurrency
 
-While not mentioned in this blog post, a *concurrency* parameter can be set for a *For Each* task - defaulting to 1. **The maximum concurrency is 100**, which should be plenty for most use cases. However, be mindful of how many tasks you want to run in parallel.
+While not mentioned in this blog post, a *concurrency* parameter can be set for a *For Each* task - defaulting to 1. **The maximum concurrency is 100**, which should be plenty for most use cases. Do be mindful of how many tasks you want to run in parallel.
 
 ### Running Tasks Sequentially
 
-When the concurrency parameter is set to anything greater than the default of 1, it will run as many tasks as possible in parallel. This implies that **we can also run things sequentially**. However, in case the **task order depends on the order of your task values**. Hence, it is important to pay attention to how you define your parameters.
+When the concurrency parameter is set to anything greater than the default of 1, it will run as many tasks as possible in parallel. This implies that **we can also run things sequentially** - just set the concurrency parameter to 1. However, in that case the **order in which your tasks are executed depends on how you define the task values**. Pay attention to how you define your parameters and you're good to go.
