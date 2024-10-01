@@ -112,7 +112,7 @@ Summary of the comparison between DLT and Dynamic Tables
 
 #### Delta Live Tables
 
-DLT operates on top of Databricks' [Delta Lake](https://learn.microsoft.com/en-us/azure/databricks/delta/){:target="_blank"}. DLT is **integrated into the Databricks platform**, where all data transformations run on **Spark clusters**. Using Spark, DLT is able to handle **both batch and streaming data**. Users can configure these Spark clusters with many parameters, such as cluster size, memory, and compute resources. There’s also a [**serverless](https://learn.microsoft.com/en-us/azure/databricks/delta-live-tables/serverless-dlt){:target="_blank"} option**, which simplifies infrastructure management but comes at a higher cost. In DLT, **a single cluster is used to process the entire pipeline**.
+DLT operates on top of Databricks' [Delta Lake](https://learn.microsoft.com/en-us/azure/databricks/delta/){:target="_blank"}. DLT is **integrated into the Databricks platform**, where all data transformations run on **Spark clusters**. Using Spark, DLT is able to handle **both batch and streaming data**. Users can configure these Spark clusters with many parameters, such as cluster size, memory, and compute resources. There’s also a **[serverless](https://learn.microsoft.com/en-us/azure/databricks/delta-live-tables/serverless-dlt){:target="_blank"} option**, which simplifies infrastructure management but comes at a higher cost. In DLT, **a single cluster is used to process the entire pipeline**.
 
 #### Dynamic Tables
 
