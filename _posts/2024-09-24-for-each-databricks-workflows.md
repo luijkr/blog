@@ -106,8 +106,36 @@ values = [
   }
 ]
 
-dbutils.jobs.taskValues.set(key="countries", value=values)
+dbutils.jobs.taskValues.set(key="my_dag", value=values)
 ```
+
+Given that this time we've called our task values `my_dag`, we create **two jobs**: a main job and a child job:
+- The **main job** loops over countries, and **calls another child job** while passing down a list of cities.
+- The **child job** takes the list of cities, and for each of those cities **runs a parameterized notebook** printing the city name.
+
+For the main job, the `input` parameter for the For Each task is set to the above configuration: `{{tasks.Set_Parameters.values.my_dag}}` - just like for our previous Level 2 job.
+
+![Level 3 Main Job, For Each Task](/assets/img/blog/for-each-level-3-main-job-1.webp){: width="75%" style="display: block; margin: 0 auto" }
+The task values set contain nested fields
+{:.figure}
+
+That way, the For Each task will loop over all dictionaries in the above configuration - one per country. However, instead of running a parameterized notebook, we **call another Job** that takes a list of countries as input. For good measure, we also pass the `country` parameter - cause why not?
+
+![Level 3 Main Job, For Each Task](/assets/img/blog/for-each-level-3-main-job-2.webp){: width="75%" style="display: block; margin: 0 auto" }
+We pass the cities to the child job by setting `citie` to `{{ input.cities }}`
+{:.figure}
+
+Now all that's left is to do is take a look at that child job that we're calling.
+
+![Level 3 Child Job, Job parameters](/assets/img/blog/for-each-level-3-child-job-1.webp){: width="75%" style="display: block; margin: 0 auto" }
+The child job is run with Job parameters
+{:.figure}
+
+This **child job takes an input parameter `cities` that will be populated by the main job** (and `country`, just for good measure). The For Each task uses these job parameters as inputs: `{{ job.parameters.cities }}`. Next, the For Each task runs over the `cities` array and runs a parameterized notebook. *Voilà!*
+
+![Level 3 Child Job, Run notebook](/assets/img/blog/for-each-level-3-child-job-2.webp){: width="75%" style="display: block; margin: 0 auto" }
+The child job loops over cities, running a parameterized notebook
+{:.figure}
 
 When you’ve gotten this far, *you now truly are a wizard, Harry!* 😉
 
