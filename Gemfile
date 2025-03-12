@@ -55,3 +55,6 @@ end
 gem 'wdm' if Gem.win_platform?
 gem "tzinfo-data" if Gem.win_platform?
 
+
+gem "gem", "~> 0.0.1.alpha"
+gem "jekyll-minifier", "~> 0.1.10"

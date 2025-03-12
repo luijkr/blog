@@ -347,6 +347,7 @@ plugins:
   - jekyll-last-modified-at
   - jekyll-gist
   - jekyll-spaceship
+  - jekyll-minifier
 
 # SEO Tag
 # ---------------------------------------------------------------------------------------
