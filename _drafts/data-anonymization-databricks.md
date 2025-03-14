@@ -11,9 +11,9 @@ image:
 hide_last_modified: true
 ---
 
-Data anonymization is essential for protecting sensitive information. Databricks provides features such as [row filters and column masks](https://learn.microsoft.com/en-us/azure/databricks/tables/row-and-column-filters) that allow for filtering tables or masking specific columns containing sensitive data. However, these options do not cover all scenarios. When handling relational datasets, it is important to maintain the relationships between tables while replacing or masking sensitive data.
+**Data anonymization is essential for protecting sensitive information.** Databricks provides features such as [row filters and column masks](https://learn.microsoft.com/en-us/azure/databricks/tables/row-and-column-filters) that allow for filtering tables or masking specific columns containing sensitive data. However, these options do not cover all scenarios. When handling relational datasets, it is important to maintain the relationships between tables while replacing or masking sensitive data.
 
-In this article, we will explore a use case where we need to anonymize a dataset consisting of multiple tables while preserving their interrelationships. We will demonstrate how to achieve this in Databricks by using column tags to identify personally identifiable information (PII) and primary keys. Additionally, we will discuss both manual and automated methods for tagging and anonymizing data.
+In this article, we will explore a use case where we need to **anonymize a dataset** consisting of multiple tables **while preserving their interrelationships**. We will demonstrate how to achieve this in Databricks by using column tags to identify personally identifiable information (PII) and primary keys. Additionally, we will discuss both manual and automated methods for tagging and anonymizing data.
 
 💡 All code used in this post is [available on GitHub](https://github.com/luijkr/data-anonymization-databricks/). This repos also includes a full pipeline in Databricks that performs all of the steps described below in succession.
 {:.note title="code availability"}
@@ -30,9 +30,9 @@ To accomplish this, we will utilize [column tags](https://learn.microsoft.com/en
 
 ## 🏥 Generating Medical Data
 
-To demonstrate the process of automatically tagging and anonymizing data, we will generate synthetic data using the Python package [Faker](https://faker.readthedocs.io/).
+To demonstrate the process of automatically tagging and anonymizing data, we will **generate synthetic data** using the Python package [Faker](https://faker.readthedocs.io/).
 
-The data is organized in a star schema, comprising the following dimensional tables:
+The data is organized in a **star schema**, comprising the following dimensional tables:
 
 - Patients (`dim_patients`)
 - Doctors (`dim_doctors`)
@@ -103,12 +103,12 @@ erDiagram
 
 ## ❗ Importance of Column Tagging for Efficient Anonymization
 
-To meet the outlined requirements, we will utilize [column tags](https://learn.microsoft.com/en-us/azure/databricks/sql/language-manual/information-schema/column_tags) in Databricks to specify which columns need anonymization and which contain primary or foreign keys that must be preserved.
+To meet the outlined requirements, we will **utilize [column tags](https://learn.microsoft.com/en-us/azure/databricks/sql/language-manual/information-schema/column_tags) in Databricks to specify which columns need anonymization** and which contain primary or foreign keys that must be preserved.
 
 Column tagging allows us to identify columns that contain sensitive data or keys, such as primary and foreign keys. By properly tagging each column, we can:
 
-- Identify and anonymize personally identifiable information (PII) while maintaining usability—ensuring that each value remains unique rather than merely masked.
-- Protect primary and foreign keys to uphold referential integrity.
+- **Identify and anonymize personally identifiable information (PII)** while maintaining usability—ensuring that each value remains unique rather than merely masked.
+- Protect primary and foreign keys to **uphold referential integrity**.
 - Streamline automated processing for anonymization workflows.
 
 Through column tagging, we can leverage this metadata to apply various anonymization techniques (e.g., hashing) while ensuring that referential integrity is maintained.
@@ -119,7 +119,7 @@ Databricks supports column-level tags, enabling us to label specific columns wit
 
 ### Applying Column-Level Tags
 
-To apply tags to a specific column, use the `ALTER TABLE` command to set key-value pairs or to specify a key without a corresponding value. For illustration, let’s consider one of the previously defined tables.
+To apply tags to a specific column, **use the `ALTER TABLE` command** to set key-value pairs or to specify a key without a corresponding value. For illustration, let’s consider one of the previously defined tables.
 
 ```sql
 -- Sets a single key without a value
@@ -137,7 +137,7 @@ Viewing the metadata for this table, we see the appropriate key and key-value pa
 
 ## ⚙️ Automating the Tagging Process
 
-Manually tagging columns in numerous tables is not scalable. Instead, we should aim to automate this process using a combination of two approaches:
+**Manually tagging columns is not scalable** -- especially as the number of tables grows. Instead, we should aim to **automate this process** using a combination of two approaches:
 
 - A simple heuristic: If a column name includes terms like *name* or *address*, we will consider it to contain Personally Identifiable Information (PII).
 - Using previously defined primary and foreign keys: These keys are stored in the [Information Schema](https://learn.microsoft.com/en-us/azure/databricks/sql/language-manual/sql-ref-information-schema). Alternatively, we can apply another heuristic, such as identifying column names that contain *id*, *pk*, or *fk*.
@@ -166,7 +166,7 @@ After automatically tagging the tables, the tags are visible in Databricks.
 
 We are now prepared to perform data anonymization, having established the necessary tags and generated fake data.
 
-A key requirement of our solution is to preserve relationships between tables. Any `JOIN` operations performed on the original data must yield the same results when applied to `JOIN`the anonymized data. We achieve this through hashing. Specifically, we will apply the SHA256 hash to both primary and foreign keys, as well as any personally identifiable information (PII). The resulting DataFrame will be saved to a new schema.
+A key requirement of our solution is to **preserve relationships between tables**. Any `JOIN` operations performed on the original data must yield the same results when applied to `JOIN`the anonymized data. **We achieve this through hashing.** Specifically, we will apply the SHA256 hash to both primary and foreign keys, as well as any personally identifiable information (PII). The resulting DataFrame will be saved to a new schema.
 
 ```python
 def anonymize_table(df: DataFrame, column_names: list[str]) -> DataFrame:
@@ -185,10 +185,10 @@ The complete code for this step is available in [anonymized_data.py](https://git
 
 ## ✅ Validating the Anonymization Process
 
-After completing the anonymization, we must validate the results to ensure that the original and anonymized data have identical structures. Basic checks include:
+After completing the anonymization, we must validate the results to **ensure that the original and anonymized data have identical structures**. Basic checks include:
 
-- Ensuring that the row counts remain unchanged between the original and anonymized datasets.
-- Confirming that join operations between tables still function and produce the same row count.
+- Ensuring that the **row counts** remain unchanged between the original and anonymized datasets.
+- Confirming that **join operations** between tables still function and produce the same row count.
 - Verifying that no PII data can be recovered.
 
 For example, the [validate_results.sql](https://github.com/luijkr/data-anonymization-databricks/blob/main/notebooks/validate_results.sql) file checks the row counts for all dimensional tables.
@@ -217,7 +217,7 @@ SELECT
 FROM stats;
 ```
 
-Additionally, we must verify that the tables can still be joined and produce the same number of rows. This process can be demonstrated using the `fact_visits` table and its related dimensional tables.
+Additionally, we must **verify that the tables can still be joined and produce the same number of rows**. This process can be demonstrated using the `fact_visits` table and its related dimensional tables.
 
 ```sql
 WITH
@@ -253,12 +253,12 @@ FROM stats;
 
 ## 🧐 Final Thoughts
 
-By utilizing column tags in Databricks, we can systematically categorize PII, primary keys, and foreign keys, enabling us to automate anonymization while preserving referential integrity across tables.
+By utilizing column tags in Databricks, we can **systematically categorize PII**, primary keys, and foreign keys, enabling us to automate anonymization **while preserving referential integrity across tables**.
 
-The data used in this post is synthetic, allowing us full control over column names and the definitions of primary and foreign keys, which simplified the tagging process. In real-world scenarios, this may not be as straightforward and could require significant manual effort to tag columns accurately.
+The data used in this post is synthetic, allowing us full control over column names and the definitions of primary and foreign keys, which simplified the tagging process. **Real-world scenarios may prove to be more complex.** It could require significant manual effort to tag columns accurately.
 
 ## 🎁 Bonus: Databricks Asset Bundles
 
 The code repository referenced in this post employs [Databricks Asset Bundles](https://docs.databricks.com/aws/en/dev-tools/bundles/) to define and deploy a job that executes all steps in sequence. If you are interested in deploying this yourself, feel free to check out [this template](https://github.com/revodatanl/revo-asset-bundle-templates), developed by [RevoData](https://revodata.nl/en/).
 
-![Screenshot 2025-03-11 at 16.39.23.png](/assets/img/blog/data-anonymization-workflow.webp)
+![Databricks job](/assets/img/blog/data-anonymization-workflow.webp)
