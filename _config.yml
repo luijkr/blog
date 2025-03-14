@@ -86,7 +86,7 @@ theme: jekyll-theme-hydejack
 # Customizaton
 # ----------------------------------------------------------------------------------------
  
-# favicon: /favicon.ico
+favicon: /favicon.ico
 
 # Sidebar image and theme color of the site.
 # accent_image:          /assets/img/sidebar-bg.webp
