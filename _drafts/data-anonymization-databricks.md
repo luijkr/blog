@@ -257,6 +257,10 @@ By utilizing column tags in Databricks, we can **systematically categorize PII**
 
 The data used in this post is synthetic, allowing us full control over column names and the definitions of primary and foreign keys, which simplified the tagging process. **Real-world scenarios may prove to be more complex.** It could require significant manual effort to tag columns accurately.
 
+In this post we used **SHA256 hasing**, which is great for anonymization. However, it **can be computationally expensive**, especially when done at scale. Alternatively, we could use a mapping approach, where we keep track of a mapping between the original key and a newly generated one. Additionally, if we were to really be cautious, we could also use [salting](https://en.wikipedia.org/wiki/Salt_%28cryptography%29) to help against [dictionary attacks](https://en.wikipedia.org/wiki/Dictionary_attack).
+
+**Column tags** are a great way to add metadata. However, we have to be careful **who has permissions to add or edit these**. Overwriting tags, whether accidental or on purpose, **may expose sensitive data**.
+
 ## 🎁 Bonus: Databricks Asset Bundles
 
 The code repository referenced in this post employs [Databricks Asset Bundles](https://docs.databricks.com/aws/en/dev-tools/bundles/) to define and deploy a job that executes all steps in sequence. If you are interested in deploying this yourself, feel free to check out [this template](https://github.com/revodatanl/revo-asset-bundle-templates), developed by [RevoData](https://revodata.nl/en/).
