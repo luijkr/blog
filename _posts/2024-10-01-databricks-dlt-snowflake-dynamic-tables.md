@@ -11,7 +11,7 @@ image:
 hide_last_modified: true
 ---
 
-**Building and managing data pipelines can be complex and time-consuming**, particularly when dealing with evolving datasets, frequent updates, and ensuring reliability at scale. Traditional methods often require extensive manual effort to maintain - such as `MERGE` statements, keeping track of which data was loaded last. This is where [declarative programming](https://en.wikipedia.org/wiki/Declarative_programming){:target="_blank"} comes into play. By allowing developers to define *what* they want instead of *how* to achieve it, **declarative pipelines simplify the pipeline creation and management process**.
+<!-- **Building and managing data pipelines can be complex and time-consuming**, particularly when dealing with evolving datasets, frequent updates, and ensuring reliability at scale. Traditional methods often require extensive manual effort to maintain - such as `MERGE` statements, keeping track of which data was loaded last. This is where [declarative programming](https://en.wikipedia.org/wiki/Declarative_programming){:target="_blank"} comes into play. By allowing developers to define *what* they want instead of *how* to achieve it, **declarative pipelines simplify the pipeline creation and management process**.
 
 In this post, we’ll explore how **Databricks Delta Live Tables (DLT)** and **Snowflake Dynamic Tables** serve as modern, automated solutions for pipeline development. While we won’t dive into the technical specifics of each framework, we’ll **focus on the user experience, pipeline management, and observability** features that distinguish them.
 
@@ -220,4 +220,4 @@ Ultimately, the decision between DLT and Dynamic Tables should also factor in **
 
 ## 🤔 Final thoughts
 
-Both Databricks Delta Live Tables and Snowflake Dynamic Tables represent significant advancements in creating and automating data pipelines. **DLT shines with its ability to handle real-time data**, while **Dynamic Tables offer a user-friendly approach** for batch data pipelines within Snowflake.
+Both Databricks Delta Live Tables and Snowflake Dynamic Tables represent significant advancements in creating and automating data pipelines. **DLT shines with its ability to handle real-time data**, while **Dynamic Tables offer a user-friendly approach** for batch data pipelines within Snowflake. -->

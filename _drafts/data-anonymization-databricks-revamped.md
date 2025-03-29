@@ -11,7 +11,7 @@ image:
 hide_last_modified: true
 ---
 
-**Developers need realistic data for testing and development.** Using production data for this purpose poses a real risk. Mitigation of this risk is especially important in tightly regulated sectors, such as in the medical sector, insurance, or in finance.
+**Developers need realistic data for testing and development.** Using production data for this purpose poses a security risk. Mitigation of this risk is especially important in tightly regulated sectors, such as in the medical sector, insurance, or in finance.
 
 **Data anonymization** is a way to make realistic data available in a development workspace for engineers to work with.
 
@@ -34,10 +34,10 @@ The goal of this article is to introduce the necessary steps to creata a secure,
 
 For this example pipeline, we will generate synthetic data using [Faker](https://faker.readthedocs.io/en/master/){:target="_blank"}. The data consists of hospital visits by patients. Each visit is associated with a patient, a hospital, and a doctor. It consists of a few tables that are structured using a [star schema](https://www.databricks.com/glossary/star-schema){:target="_blank"}.
 
-- `fact_visits`: All visits to hospitals by the patients.
+- `fact_visits`: All visits to hospitals by patients.
 - `dim_patients`: Patient data, such as patient name and date of birth.
 - `dim_hospitals`: Hospital contact information, such as address.
-- `dim_doctors`: Information about the doctors, such as specialization.
+- `dim_doctors`: Information about the doctors, such as their specialization.
 
 Visually, we can represent the tables as follows.
 
